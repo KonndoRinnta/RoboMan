@@ -6,19 +6,24 @@ public class PlayerMove : MonoBehaviour
 {
     [SerializeField]
     [Header("プレイヤーの速度")]
-    float speed = 5f;
+    private float _speed = 5f;
 
+    private Rigidbody2D _rb;
+
+    private void Start()
+    {
+        _rb = GetComponent<Rigidbody2D>();
+    }
     void Update()
     {
         Move();
     }
     public void Move()
     {
-        float x = Input.GetAxisRaw("Horizontal");
-        float y = Input.GetAxisRaw("Vertical");
+        float horizontalInput = Input.GetAxis("Horizontal");
 
-        Vector2 direction = new Vector2(x, y).normalized;
+        Vector2 movement = new Vector2(horizontalInput * _speed, 0f);
 
-        GetComponent<Rigidbody2D>().velocity = direction * speed;
+        _rb.velocity = movement;
     }
 }
