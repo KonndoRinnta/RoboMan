@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class RunState : IPlayerState
 {
-    public void OnUpdate(PlayerMove playerMove)
+    public void OnUpdate(PlayerController playerMove)
     {
 
     }

@@ -4,8 +4,11 @@ using UnityEngine;
 
 public class StopState : IPlayerState
 {
-    public void OnUpdate(PlayerMove playerMove)
+    public void OnUpdate(PlayerController playerController)
     {
-
+        if(Input.GetButtonDown("Horizontal"))
+        {
+            playerController.ChangeState(PlayerState.Walk);
+        }
     }
 }

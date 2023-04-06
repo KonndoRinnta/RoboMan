@@ -4,5 +4,5 @@ using UnityEngine;
 
 public interface IPlayerState
 {
-    void OnUpdate(PlayerMove playerMove);
+    void OnUpdate(PlayerController playerController);
 }
