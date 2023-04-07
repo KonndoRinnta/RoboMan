@@ -4,12 +4,16 @@ using UnityEngine;
 
 public class JumpState : IPlayerState
 {
+    private float _jumpTime = 0.06f;
+    public IEnumerator Execute(PlayerController playerController)
+    {
+        playerController.Rb.AddForce(new Vector2(0, playerController.JumpPower), ForceMode2D.Impulse);
+        yield return new WaitForSeconds(_jumpTime); // ジャンプが終わるまで待つ
+        playerController.ChangeState(PlayerState.Air);
+    }
+
     public void OnUpdate(PlayerController playerController)
     {
-        if(playerController.IsGround)
-        {
-            
-        }
-        playerController.ChangeState(PlayerState.Air);
+        playerController.StartCoroutine(Execute(playerController)); // Coroutineを開始する
     }
 }

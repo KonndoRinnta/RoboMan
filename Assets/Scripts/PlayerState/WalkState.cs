@@ -19,5 +19,10 @@ public class WalkState : IPlayerState
         {
             playerController.ChangeState(PlayerState.Stop);
         }
+
+        if(playerController.IsGround == false)
+        {
+            playerController.ChangeState(PlayerState.Air);
+        }
     }
 }

@@ -64,7 +64,7 @@ public class PlayerController : MonoBehaviour
     }
     public void ChangeState(PlayerState nextState)
     {
-        if (_currentState == nextState) return;
+        if(_currentState == nextState) return;
 
         _currentState = nextState;
     }

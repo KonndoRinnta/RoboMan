@@ -8,7 +8,7 @@ public class AirState : IPlayerState
     {
         float horizontalInput = Input.GetAxis("Horizontal");
 
-        Vector2 movement = new Vector2(horizontalInput * playerController.Speed, 0f);
+        Vector2 movement = new Vector2(horizontalInput * playerController.Speed, playerController.Rb.velocity.y - 0.1f);
 
         playerController.Rb.velocity = movement;
         if (playerController.IsGround)
