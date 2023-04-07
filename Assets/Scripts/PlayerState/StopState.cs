@@ -6,9 +6,17 @@ public class StopState : IPlayerState
 {
     public void OnUpdate(PlayerController playerController)
     {
-        if(Input.GetButtonDown("Horizontal"))
+        if(Input.GetButton("Horizontal"))
         {
             playerController.ChangeState(PlayerState.Walk);
+        }
+        if(Input.GetButtonDown("Jump"))
+        {
+            playerController.ChangeState(PlayerState.Jump);
+        }
+        if(Input.GetKeyDown(KeyCode.LeftControl))
+        {
+            playerController.ChangeState(PlayerState.Crouching);
         }
     }
 }

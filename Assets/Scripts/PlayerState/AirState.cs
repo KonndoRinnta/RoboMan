@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class WalkState : IPlayerState
+public class AirState : IPlayerState
 {
     public void OnUpdate(PlayerController playerController)
     {
@@ -11,11 +11,7 @@ public class WalkState : IPlayerState
         Vector2 movement = new Vector2(horizontalInput * playerController.Speed, 0f);
 
         playerController.Rb.velocity = movement;
-        if (Input.GetKeyDown(KeyCode.LeftShift))
-        {
-            playerController.ChangeState(PlayerState.Dash);
-        }
-        if(Input.GetButtonUp("Horizontal"))
+        if (playerController.IsGround)
         {
             playerController.ChangeState(PlayerState.Stop);
         }
