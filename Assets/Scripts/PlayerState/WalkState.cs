@@ -24,5 +24,15 @@ public class WalkState : IPlayerState
         {
             playerController.ChangeState(PlayerState.Air);
         }
+
+        if (Input.GetButtonDown("Jump"))
+        {
+            playerController.ChangeState(PlayerState.Jump);
+        }
+
+        if (Input.GetKeyDown(KeyCode.LeftControl))
+        {
+            playerController.ChangeState(PlayerState.Crouching);
+        }
     }
 }
