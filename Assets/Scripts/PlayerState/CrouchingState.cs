@@ -4,13 +4,17 @@ using UnityEngine;
 
 public class CrouchingState : IPlayerState
 {
+    public void OnStart(PlayerController playerController)
+    {
+
+    }
     public void OnUpdate(PlayerController playerController)
     {
-        if (Input.GetKeyUp(KeyCode.LeftControl))
+        if (Input.GetButtonUp("Crouching"))
         {
             playerController.ChangeState(PlayerState.Stop);
         }
-        if (Input.GetKeyDown(KeyCode.LeftShift))
+        if (Input.GetButtonDown("Sliding"))
         {
             playerController.ChangeState(PlayerState.Sliding);
         }

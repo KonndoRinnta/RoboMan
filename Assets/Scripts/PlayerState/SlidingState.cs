@@ -12,6 +12,10 @@ public class SlidingState : IPlayerState
         yield return new WaitForSeconds(_slidingTime); // スライディングが終わるまで待つ
         playerController.ChangeState(PlayerState.Stop);
     }
+    public void OnStart(PlayerController playerController)
+    {
+
+    }
     public void OnUpdate(PlayerController playerController)
     {
         playerController.StartCoroutine(Execute(playerController)); // Coroutineを開始する

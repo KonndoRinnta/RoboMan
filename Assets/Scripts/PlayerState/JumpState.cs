@@ -11,9 +11,13 @@ public class JumpState : IPlayerState
         yield return new WaitForSeconds(_jumpTime); // ジャンプが終わるまで待つ
         playerController.ChangeState(PlayerState.Air);
     }
+    public void OnStart(PlayerController playerController)
+    {
+        playerController.StartCoroutine(Execute(playerController)); // Coroutineを開始する
+    }
 
     public void OnUpdate(PlayerController playerController)
     {
-        playerController.StartCoroutine(Execute(playerController)); // Coroutineを開始する
+
     }
 }

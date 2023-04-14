@@ -23,12 +23,15 @@ public class PlayerController : MonoBehaviour
     [SerializeField,Header("Rayの長さ")]
     float _rayDistance = 0.1f; // Rayの長さを指定
 
-     // 接地判定を行うレイヤーを指定
-
     [SerializeField] bool _isGround; //接地しているかの判定
     public bool IsGround => _isGround;
 
     private int _layerMask;
+
+    [SerializeField, Header("プレイヤーのAnimator")]
+    private Animator _animator;
+
+    public Animator Animator => _animator;
 
     private Rigidbody2D _rb;
     public Rigidbody2D Rb => _rb;
@@ -42,7 +45,7 @@ public class PlayerController : MonoBehaviour
     {
         _layerMask = LayerMask.GetMask("Ground");
         _rb = GetComponent<Rigidbody2D>();
-        _currentState = PlayerState.Stop;
+        _currentState = PlayerState.None;
         _stateData.Add(PlayerState.Stop,new StopState());
         _stateData.Add(PlayerState.Walk,new WalkState());
         _stateData.Add(PlayerState.Jump,new JumpState());
@@ -53,12 +56,14 @@ public class PlayerController : MonoBehaviour
         _stateData.Add(PlayerState.NormalAttack,new NormalAttackState());
         _stateData.Add(PlayerState.AirAttack,new AirAttackState());
         _stateData.Add(PlayerState.ChargeAttack,new ChargeAttackState());
+        ChangeState(PlayerState.Stop);
     }
     void Update()
     {
         _rayOrigin = transform.position; // Rayの始点を取得
         _isGround = Physics2D.Raycast(_rayOrigin, _rayDirection, _rayDistance, _layerMask);
         Debug.DrawRay(_rayOrigin, _rayDirection * _rayDistance, Color.red);
+
         CurrentState.OnUpdate(this);
         Debug.Log(_currentState);
     }
@@ -67,10 +72,13 @@ public class PlayerController : MonoBehaviour
         if(_currentState == nextState) return;
 
         _currentState = nextState;
+
+        CurrentState.OnStart(this);
     }
 }
 public enum PlayerState
 {
+    None,
     Stop,
     Walk,
     Jump,

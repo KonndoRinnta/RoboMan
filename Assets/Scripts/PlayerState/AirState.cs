@@ -4,6 +4,10 @@ using UnityEngine;
 
 public class AirState : IPlayerState
 {
+    public void OnStart(PlayerController playerController)
+    {
+
+    }
     public void OnUpdate(PlayerController playerController)
     {
         float horizontalInput = Input.GetAxis("Horizontal");

@@ -4,6 +4,10 @@ using UnityEngine;
 
 public class NormalAttackState : IPlayerState
 {
+    public void OnStart(PlayerController playerController)
+    {
+
+    }
     public void OnUpdate(PlayerController playerMove)
     {
 

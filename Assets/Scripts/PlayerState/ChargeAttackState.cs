@@ -4,6 +4,10 @@ using UnityEngine;
 
 public class ChargeAttackState : IPlayerState
 {
+    public void OnStart(PlayerController playerController)
+    {
+
+    }
     public void OnUpdate(PlayerController playerMove)
     {
 

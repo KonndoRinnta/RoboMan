@@ -4,6 +4,10 @@ using UnityEngine;
 
 public class StopState : IPlayerState
 {
+    public void OnStart(PlayerController playerController)
+    {
+        playerController.Animator.Play("player_stand");
+    }
     public void OnUpdate(PlayerController playerController)
     {
         if(Input.GetButton("Horizontal"))
@@ -14,7 +18,7 @@ public class StopState : IPlayerState
         {
             playerController.ChangeState(PlayerState.Jump);
         }
-        if(Input.GetKeyDown(KeyCode.LeftControl))
+        if(Input.GetButtonDown("Crouching"))
         {
             playerController.ChangeState(PlayerState.Crouching);
         }
