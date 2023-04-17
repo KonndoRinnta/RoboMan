@@ -15,7 +15,7 @@ public class WalkState : IPlayerState
         Vector2 movement = new Vector2(horizontalInput * playerController.Speed, 0f);
 
         playerController.Rb.velocity = movement;
-        if (Input.GetKeyDown(KeyCode.LeftShift))
+        if (Input.GetButtonDown("Dash"))
         {
             playerController.ChangeState(PlayerState.Dash);
         }

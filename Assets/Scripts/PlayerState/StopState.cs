@@ -10,7 +10,7 @@ public class StopState : IPlayerState
     }
     public void OnUpdate(PlayerController playerController)
     {
-        if(Input.GetButton("Horizontal"))
+        if (Input.GetAxis("Horizontal") != 0)
         {
             playerController.ChangeState(PlayerState.Walk);
         }
