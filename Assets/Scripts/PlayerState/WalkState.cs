@@ -19,7 +19,7 @@ public class WalkState : IPlayerState
         {
             playerController.ChangeState(PlayerState.Dash);
         }
-        if(Input.GetButtonUp("Horizontal"))
+        if(playerController.MoveInput == 0f)
         {
             playerController.ChangeState(PlayerState.Stop);
         }
@@ -29,7 +29,7 @@ public class WalkState : IPlayerState
             playerController.ChangeState(PlayerState.Air);
         }
 
-        if (Input.GetButtonDown("Jump"))
+        if (playerController.JumpInput)
         {
             playerController.ChangeState(PlayerState.Jump);
         }

@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class PlayerController : MonoBehaviour
 {
@@ -30,11 +31,22 @@ public class PlayerController : MonoBehaviour
 
     [SerializeField, Header("ƒvƒŒƒCƒ„[‚ÌAnimator")]
     private Animator _animator;
-
     public Animator Animator => _animator;
 
     private Rigidbody2D _rb;
     public Rigidbody2D Rb => _rb;
+
+    private float _moveInput;
+    public float MoveInput => _moveInput;
+
+    private bool _jumpInput;
+    public bool JumpInput => _jumpInput;
+
+    private bool _dashInput;
+    public bool DashInput => _dashInput;
+
+    private bool _crouchingInput;
+    public bool CrouchingInput => _crouchingInput;
 
     PlayerState _currentState;
     public IPlayerState CurrentState => _stateData[_currentState]; 
@@ -74,6 +86,22 @@ public class PlayerController : MonoBehaviour
         _currentState = nextState;
 
         CurrentState.OnStart(this);
+    }
+    public void OnMove(InputAction.CallbackContext context)
+    {
+        _moveInput = context.ReadValue<Vector2>().x;
+    }
+    public void OnJump(InputAction.CallbackContext context)
+    {
+        _jumpInput = context.ReadValue<bool>();
+    }
+    public void OnDash(InputAction.CallbackContext context)
+    {
+        _dashInput = context.ReadValue<bool>();
+    }
+    public void OnCrouching(InputAction.CallbackContext context)
+    {
+        _crouchingInput = context.ReadValue<bool>();
     }
 }
 public enum PlayerState

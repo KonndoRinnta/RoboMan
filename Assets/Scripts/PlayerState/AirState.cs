@@ -10,7 +10,7 @@ public class AirState : IPlayerState
     }
     public void OnUpdate(PlayerController playerController)
     {
-        float horizontalInput = Input.GetAxis("Horizontal");
+        float horizontalInput = playerController.MoveInput;
 
         Vector2 movement = new Vector2(horizontalInput * playerController.Speed, playerController.Rb.velocity.y - 0.1f);
 
