@@ -14,10 +14,11 @@ public class SlidingState : IPlayerState
     }
     public void OnStart(PlayerController playerController)
     {
-        
+        playerController.Animator.Play("player_sliding");
+        playerController.StartCoroutine(Execute(playerController)); // Coroutineを開始する
     }
     public void OnUpdate(PlayerController playerController)
     {
-        playerController.StartCoroutine(Execute(playerController)); // Coroutineを開始する
+
     }
 }

@@ -6,15 +6,15 @@ public class CrouchingState : IPlayerState
 {
     public void OnStart(PlayerController playerController)
     {
-
+        playerController.Animator.Play("player_crouching");
     }
     public void OnUpdate(PlayerController playerController)
     {
-        if (Input.GetButtonUp("Crouching"))
+        if (!playerController.CrouchingInput)
         {
             playerController.ChangeState(PlayerState.Stop);
         }
-        if (Input.GetButtonDown("Sliding"))
+        if (playerController.SlidingInput)
         {
             playerController.ChangeState(PlayerState.Sliding);
         }

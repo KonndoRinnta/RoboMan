@@ -50,6 +50,9 @@ public class PlayerController : MonoBehaviour
     private bool _crouchingInput;
     public bool CrouchingInput => _crouchingInput;
 
+    private bool _slidingInput;
+    public bool SlidingInput => _slidingInput;
+
     PlayerState _currentState;
     public IPlayerState CurrentState => _stateData[_currentState]; 
 
@@ -106,6 +109,10 @@ public class PlayerController : MonoBehaviour
     public void OnCrouching(InputAction.CallbackContext context)
     {
         _crouchingInput = context.ReadValueAsButton();
+    }
+    public void OnSliding(InputAction.CallbackContext context)
+    {
+        _slidingInput = context.ReadValueAsButton();
     }
     public void DashChecker()
     {
