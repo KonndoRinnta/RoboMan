@@ -6,7 +6,7 @@ public class AirState : IPlayerState
 {
     public void OnStart(PlayerController playerController)
     {
-
+        playerController.Animator.Play("palyer_air");
     }
     public void OnUpdate(PlayerController playerController)
     {

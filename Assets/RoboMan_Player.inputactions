@@ -19,7 +19,15 @@
                     "id": "773b19af-ae45-443d-a6f5-ac9c2be9e509",
                     "expectedControlType": "Button",
                     "processors": "",
-                    "interactions": ""
+                    "interactions": "Press"
+                },
+                {
+                    "name": "Dash",
+                    "type": "Button",
+                    "id": "503bc60c-3c4e-40c4-af1f-23d1dcd0ee1f",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "Press(pressPoint=0.5)"
                 }
             ],
             "bindings": [
@@ -185,6 +193,28 @@
                     "processors": "",
                     "groups": ";Touch",
                     "action": "Jump",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "edbdd6f0-dfff-4695-9ad1-da5424abf6bf",
+                    "path": "<Gamepad>/rightShoulder",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Dash",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "ce74ba7b-3f42-4e83-ba6e-18bafe4a28cc",
+                    "path": "<Keyboard>/shift",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Dash",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

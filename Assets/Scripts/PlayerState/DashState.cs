@@ -10,14 +10,16 @@ public class DashState : IPlayerState
         Vector2 direction = playerController.Rb.velocity.normalized;
         playerController.Rb.AddForce(direction * playerController.Dash, ForceMode2D.Impulse);
         yield return new WaitForSeconds(_dashTime); // ダッシュが終わるまで待つ
+        playerController.DashChecker();
         playerController.ChangeState(PlayerState.Stop);
     }
     public void OnStart(PlayerController playerController)
     {
-
+        playerController.Animator.Play("player_dash");
+        playerController.StartCoroutine(Execute(playerController)); // Coroutineを開始する
     }
     public void OnUpdate(PlayerController playerController)
     {
-        playerController.StartCoroutine(Execute(playerController)); // Coroutineを開始する
+
     }
 }

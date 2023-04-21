@@ -33,6 +33,8 @@ public class PlayerController : MonoBehaviour
     private Animator _animator;
     public Animator Animator => _animator;
 
+    private SpriteRenderer _sR;
+
     private Rigidbody2D _rb;
     public Rigidbody2D Rb => _rb;
 
@@ -55,6 +57,7 @@ public class PlayerController : MonoBehaviour
 
     private void Awake()
     {
+        _sR = GetComponent<SpriteRenderer>();
         _layerMask = LayerMask.GetMask("Ground");
         _rb = GetComponent<Rigidbody2D>();
         _currentState = PlayerState.None;
@@ -90,18 +93,23 @@ public class PlayerController : MonoBehaviour
     public void OnMove(InputAction.CallbackContext context)
     {
         _moveInput = context.ReadValue<Vector2>().x;
+        _sR.flipX = _moveInput < 0 ? true : false;
     }
     public void OnJump(InputAction.CallbackContext context)
     {
-        _jumpInput = context.ReadValue<bool>();
+        _jumpInput = context.ReadValueAsButton();
     }
     public void OnDash(InputAction.CallbackContext context)
     {
-        _dashInput = context.ReadValue<bool>();
+        _dashInput = context.ReadValueAsButton();
     }
     public void OnCrouching(InputAction.CallbackContext context)
     {
-        _crouchingInput = context.ReadValue<bool>();
+        _crouchingInput = context.ReadValueAsButton();
+    }
+    public void DashChecker()
+    {
+        _dashInput = false;
     }
 }
 public enum PlayerState

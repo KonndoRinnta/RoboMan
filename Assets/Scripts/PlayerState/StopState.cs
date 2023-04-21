@@ -21,9 +21,13 @@ public class StopState : IPlayerState
         {
             playerController.ChangeState(PlayerState.Jump);
         }
-        if(Input.GetButtonDown("Crouching"))
+        if(playerController.CrouchingInput)
         {
             playerController.ChangeState(PlayerState.Crouching);
+        }
+        if (!playerController.IsGround)
+        {
+            playerController.ChangeState(PlayerState.Air);
         }
     }
 }

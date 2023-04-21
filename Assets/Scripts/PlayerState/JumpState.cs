@@ -14,6 +14,7 @@ public class JumpState : IPlayerState
     public void OnStart(PlayerController playerController)
     {
         playerController.StartCoroutine(Execute(playerController)); // Coroutine‚ðŠJŽn‚·‚é
+        playerController.Animator.Play("player_jump");
     }
 
     public void OnUpdate(PlayerController playerController)
