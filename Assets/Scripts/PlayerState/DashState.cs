@@ -4,14 +4,18 @@ using UnityEngine;
 
 public class DashState : IPlayerState
 {
-    private float _dashTime = 0.06f;
     public IEnumerator Execute(PlayerController playerController)
     {
         Vector2 direction = playerController.Rb.velocity.normalized;
-        playerController.Rb.AddForce(direction * playerController.Dash, ForceMode2D.Impulse);
-        yield return new WaitForSeconds(_dashTime); // ダッシュが終わるまで待つ
+        playerController.Rb.velocity = direction * playerController.DashPower;
+        yield return new WaitForSeconds(playerController.DashTime); // ダッシュが終わるまで待つ
         playerController.DashChecker();
-        playerController.ChangeState(PlayerState.Stop);
+        if (playerController.IsGround) playerController.ChangeState(PlayerState.Stop);
+        else if(playerController.AirDashable)
+        {
+            playerController.AirDashChecker();
+            playerController.ChangeState(PlayerState.Air);
+        }
     }
     public void OnStart(PlayerController playerController)
     {

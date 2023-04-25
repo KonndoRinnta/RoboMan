@@ -8,7 +8,7 @@ public class SlidingState : IPlayerState
     public IEnumerator Execute(PlayerController playerController)
     {
         Vector2 direction = playerController.Rb.velocity.normalized;
-        playerController.Rb.AddForce(direction * playerController.Dash, ForceMode2D.Impulse);
+        playerController.Rb.AddForce(direction * playerController.DashPower, ForceMode2D.Impulse);
         yield return new WaitForSeconds(_slidingTime); // スライディングが終わるまで待つ
         playerController.ChangeState(PlayerState.Stop);
     }

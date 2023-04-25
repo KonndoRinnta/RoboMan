@@ -10,8 +10,12 @@ public class PlayerController : MonoBehaviour
     public float Speed => _speed;
 
     [SerializeField,Header("ダッシュのパワー")]
-    private float _dash = 8f;
-    public float Dash => _dash;
+    private float _dashPower = 8f;
+    public float DashPower => _dashPower;
+
+    [SerializeField, Header("ダッシュ時間")]
+    private float _dashTime = 0.2f;
+    public float DashTime => _dashTime;
 
     [SerializeField, Header("ジャンプ力")]
     private float _jumpPower = 5f;
@@ -37,6 +41,9 @@ public class PlayerController : MonoBehaviour
 
     private Rigidbody2D _rb;
     public Rigidbody2D Rb => _rb;
+
+    private bool _airDashable;
+    public bool AirDashable => _airDashable;
 
     private float _moveInput;
     public float MoveInput => _moveInput;
@@ -68,6 +75,7 @@ public class PlayerController : MonoBehaviour
         _stateData.Add(PlayerState.Walk,new WalkState());
         _stateData.Add(PlayerState.Jump,new JumpState());
         _stateData.Add(PlayerState.Air,new AirState());
+        _stateData.Add(PlayerState.AirWalk, new AirWalkState());
         _stateData.Add(PlayerState.Dash,new DashState());
         _stateData.Add(PlayerState.Crouching,new CrouchingState());
         _stateData.Add(PlayerState.Sliding,new SlidingState());
@@ -118,6 +126,10 @@ public class PlayerController : MonoBehaviour
     {
         _dashInput = false;
     }
+    public void AirDashChecker()
+    {
+        _airDashable = false;
+    }
 }
 public enum PlayerState
 {
@@ -126,6 +138,7 @@ public enum PlayerState
     Walk,
     Jump,
     Air,
+    AirWalk,
     Dash,
     Crouching,
     Sliding,
