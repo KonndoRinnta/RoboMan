@@ -223,7 +223,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 443215989}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.96862483, y: -2.92, z: 0}
+  m_LocalPosition: {x: -0.96862483, y: -2.95, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -258,7 +258,7 @@ CapsuleCollider2D:
   m_GameObject: {fileID: 443215989}
   m_Enabled: 1
   m_Density: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: ec46476597a2e1d45b5d15206144a1e1, type: 2}
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
@@ -416,19 +416,7 @@ MonoBehaviour:
     m_ActionId: e09191cc-21ba-43d4-81fd-17c990e45ae3
     m_ActionName: Player/Crouching[/Keyboard/s]
   - m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 443215993}
-        m_TargetAssemblyTypeName: PlayerController, Assembly-CSharp
-        m_MethodName: OnSliding
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
     m_ActionId: b46c7380-4e0b-4101-b808-040990a9a448
     m_ActionName: Player/Sliding[/Keyboard/shift]
   m_NeverAutoSwitchControlSchemes: 0
