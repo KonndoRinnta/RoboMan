@@ -42,7 +42,7 @@ public class PlayerController : MonoBehaviour
     private Rigidbody2D _rb;
     public Rigidbody2D Rb => _rb;
 
-    private bool _airDashable;
+    [SerializeField]private bool _airDashable = true;
     public bool AirDashable => _airDashable;
 
     private float _moveInput;
@@ -129,6 +129,14 @@ public class PlayerController : MonoBehaviour
     public void AirDashChecker()
     {
         _airDashable = false;
+    }
+    public void AirDashRemove()
+    {
+        _airDashable = true;
+    }
+    public void SlidingChecker()
+    {
+        _slidingInput = false;
     }
 }
 public enum PlayerState

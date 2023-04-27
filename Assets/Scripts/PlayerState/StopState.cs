@@ -8,7 +8,7 @@ public class StopState : IPlayerState
     public void OnStart(PlayerController playerController)
     {
         playerController.Animator.Play("player_stand");
-        playerController.DashChecker();
+        playerController.AirDashRemove();
     }
 
     public void OnUpdate(PlayerController playerController)

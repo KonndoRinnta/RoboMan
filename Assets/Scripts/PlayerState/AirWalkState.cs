@@ -22,7 +22,7 @@ public class AirWalkState : IPlayerState
             playerController.ChangeState(PlayerState.Air);
         }
 
-        if (playerController.DashInput)
+        if (playerController.DashInput && playerController.AirDashable)
         {
             playerController.ChangeState(PlayerState.Dash);
         }

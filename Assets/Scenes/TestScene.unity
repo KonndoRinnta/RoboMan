@@ -242,12 +242,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _speed: 5
-  _dashPower: 20
+  _dashPower: 15
   _dashTime: 0.2
   _jumpPower: 9
   _rayDistance: 1.35
   _isGround: 1
   _animator: {fileID: 443215990}
+  _airDashable: 1
 --- !u!70 &443215994
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -415,7 +416,19 @@ MonoBehaviour:
     m_ActionId: e09191cc-21ba-43d4-81fd-17c990e45ae3
     m_ActionName: Player/Crouching[/Keyboard/s]
   - m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 443215993}
+        m_TargetAssemblyTypeName: PlayerController, Assembly-CSharp
+        m_MethodName: OnSliding
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_ActionId: b46c7380-4e0b-4101-b808-040990a9a448
     m_ActionName: Player/Sliding[/Keyboard/shift]
   m_NeverAutoSwitchControlSchemes: 0
@@ -789,6 +802,7 @@ MonoBehaviour:
   _rayDistance: 0.6
   _isGround: 1
   _animator: {fileID: 0}
+  _airDashable: 1
 --- !u!50 &1716228300
 Rigidbody2D:
   serializedVersion: 4

@@ -258,8 +258,8 @@
                 },
                 {
                     "name": "",
-                    "id": "317a4d0d-3f8a-44e0-be83-a379f130a9ec",
-                    "path": "<Keyboard>/shift",
+                    "id": "a26593d9-92ee-4fb3-af34-256e4acb0bb2",
+                    "path": "<Gamepad>/rightShoulder",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
@@ -269,8 +269,8 @@
                 },
                 {
                     "name": "",
-                    "id": "a26593d9-92ee-4fb3-af34-256e4acb0bb2",
-                    "path": "<Gamepad>/rightShoulder",
+                    "id": "317a4d0d-3f8a-44e0-be83-a379f130a9ec",
+                    "path": "<Keyboard>/shift",
                     "interactions": "",
                     "processors": "",
                     "groups": "",

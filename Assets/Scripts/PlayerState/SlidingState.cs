@@ -4,12 +4,12 @@ using UnityEngine;
 
 public class SlidingState : IPlayerState
 {
-    private float _slidingTime = 0.06f;
     public IEnumerator Execute(PlayerController playerController)
     {
         Vector2 direction = playerController.Rb.velocity.normalized;
-        playerController.Rb.AddForce(direction * playerController.DashPower, ForceMode2D.Impulse);
-        yield return new WaitForSeconds(_slidingTime); // スライディングが終わるまで待つ
+        playerController.Rb.velocity = direction * playerController.DashPower;
+        yield return new WaitForSeconds(playerController.DashTime); // スラが終わるまで待つ
+        playerController.SlidingChecker();
         playerController.ChangeState(PlayerState.Stop);
     }
     public void OnStart(PlayerController playerController)
