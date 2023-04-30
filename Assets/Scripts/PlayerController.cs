@@ -21,6 +21,10 @@ public class PlayerController : MonoBehaviour
     private float _jumpPower = 5f;
     public float JumpPower => _jumpPower;
 
+    [SerializeField, Header("UŒ‚Žž‚Ìd’¼ŽžŠÔ")]
+    private float _attackTime = 0.2f;
+    public float AttackTime => _attackTime;
+
     Vector2 _rayOrigin; // Ray‚ÌŽn“_
 
     Vector2 _rayDirection = Vector2.down; // Ray‚Ì•ûŒü‚ðŽw’è
