@@ -44,6 +44,14 @@
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": "Press(pressPoint=0.5)"
+                },
+                {
+                    "name": "Attack",
+                    "type": "Button",
+                    "id": "87868553-f412-42fd-8864-82f2d1b7f902",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "Press(pressPoint=0.5)"
                 }
             ],
             "bindings": [
@@ -275,6 +283,39 @@
                     "processors": "",
                     "groups": "",
                     "action": "Sliding",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "02fce5c7-f623-436d-a6e2-a5608d4b96e3",
+                    "path": "<Mouse>/leftButton",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Attack",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "05136a24-63c6-42e5-91b2-0d58526acd42",
+                    "path": "<Gamepad>/dpad/left",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Attack",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "19e234ce-de0e-4ac2-9b51-4cbfac8a93b3",
+                    "path": "<XInputController>/buttonWest",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Attack",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

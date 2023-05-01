@@ -25,6 +25,10 @@ public class PlayerController : MonoBehaviour
     private float _attackTime = 0.2f;
     public float AttackTime => _attackTime;
 
+    [SerializeField, Header("立ち攻撃のヒット判定Collider")]
+    private GameObject _normalAttackHitBox;
+    public GameObject NormalAttackHitBox => _normalAttackHitBox;
+
     Vector2 _rayOrigin; // Rayの始点
 
     Vector2 _rayDirection = Vector2.down; // Rayの方向を指定
@@ -32,7 +36,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField,Header("Rayの長さ")]
     float _rayDistance = 0.1f; // Rayの長さを指定
 
-    [SerializeField] bool _isGround; //接地しているかの判定
+    [SerializeField] bool _isGround;
     public bool IsGround => _isGround;
 
     private int _layerMask;
@@ -63,6 +67,9 @@ public class PlayerController : MonoBehaviour
 
     private bool _slidingInput;
     public bool SlidingInput => _slidingInput;
+
+    private bool _attackInput;
+    public bool AttackInput => _attackInput; 
 
     PlayerState _currentState;
     public IPlayerState CurrentState => _stateData[_currentState]; 
@@ -126,6 +133,10 @@ public class PlayerController : MonoBehaviour
     {
         _slidingInput = context.ReadValueAsButton();
     }
+    public void OnAttack(InputAction.CallbackContext context)
+    {
+        _attackInput = context.ReadValueAsButton();
+    }
     public void DashChecker()
     {
         _dashInput = false;
@@ -141,6 +152,14 @@ public class PlayerController : MonoBehaviour
     public void SlidingChecker()
     {
         _slidingInput = false;
+    }
+    public void NormalAttackCheckOn()
+    {
+        _normalAttackHitBox.SetActive(true);
+    }
+    public void NormalAttackCheckOff()
+    {
+        _normalAttackHitBox.SetActive(false);
     }
 }
 public enum PlayerState

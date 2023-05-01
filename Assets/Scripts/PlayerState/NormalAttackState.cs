@@ -6,7 +6,10 @@ public class NormalAttackState : IPlayerState
 {
     public IEnumerator Execute(PlayerController playerController)
     {
+        playerController.NormalAttackCheckOn();
         yield return new WaitForSeconds(playerController.AttackTime);
+        playerController.NormalAttackCheckOff();
+        playerController.ChangeState(PlayerState.Stop);
     }
     public void OnStart(PlayerController playerController)
     {
