@@ -25,6 +25,10 @@ public class PlayerController : MonoBehaviour
     private float _hP = 5f;
     public float HP => _hP;
 
+    [SerializeField, Header("プレイヤーの攻撃力")]
+    private float _attack = 5f;
+    public float Attack => _attack;
+
     [SerializeField, Header("攻撃時の硬直時間")]
     private float _attackTime = 0.2f;
     public float AttackTime => _attackTime;
