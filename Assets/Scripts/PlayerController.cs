@@ -5,43 +5,51 @@ using UnityEngine.InputSystem;
 
 public class PlayerController : MonoBehaviour
 {
-    [SerializeField,Header("ƒvƒŒƒCƒ„[‚Ì‘¬“x")]
+    [SerializeField,Header("ãƒ—ãƒ¬ã‚¤ãƒ¤ãƒ¼ã®é€Ÿåº¦")]
     private float _speed = 5f;
     public float Speed => _speed;
 
-    [SerializeField,Header("ƒ_ƒbƒVƒ…‚Ìƒpƒ[")]
+    [SerializeField,Header("ãƒ€ãƒƒã‚·ãƒ¥ã®ãƒ‘ãƒ¯ãƒ¼")]
     private float _dashPower = 8f;
     public float DashPower => _dashPower;
 
-    [SerializeField, Header("ƒ_ƒbƒVƒ…ŠÔ")]
+    [SerializeField, Header("ãƒ€ãƒƒã‚·ãƒ¥æ™‚é–“")]
     private float _dashTime = 0.2f;
     public float DashTime => _dashTime;
 
-    [SerializeField, Header("ƒWƒƒƒ“ƒv—Í")]
+    [SerializeField, Header("ã‚¸ãƒ£ãƒ³ãƒ—åŠ›")]
     private float _jumpPower = 5f;
     public float JumpPower => _jumpPower;
 
-    [SerializeField, Header("UŒ‚‚Ìd’¼ŠÔ")]
+    [SerializeField, Header("ãƒ—ãƒ¬ã‚¤ãƒ¤ãƒ¼ã®ä½“åŠ›")]
+    private float _hP = 5f;
+    public float HP => _hP;
+
+    [SerializeField, Header("ãƒ—ãƒ¬ã‚¤ãƒ¤ãƒ¼ã®æ”»æ’ƒåŠ›")]
+    private float _attack = 5f;
+    public float Attack => _attack;
+
+    [SerializeField, Header("æ”»æ’ƒæ™‚ã®ç¡¬ç›´æ™‚é–“")]
     private float _attackTime = 0.2f;
     public float AttackTime => _attackTime;
 
-    [SerializeField, Header("—§‚¿UŒ‚‚Ìƒqƒbƒg”»’èCollider")]
+    [SerializeField, Header("ç«‹ã¡æ”»æ’ƒã®ãƒ’ãƒƒãƒˆåˆ¤å®šCollider")]
     private GameObject _normalAttackHitBox;
     public GameObject NormalAttackHitBox => _normalAttackHitBox;
 
-    Vector2 _rayOrigin; // Ray‚Ìn“_
+    Vector2 _rayOrigin; // Rayã®å§‹ç‚¹
 
-    Vector2 _rayDirection = Vector2.down; // Ray‚Ì•ûŒü‚ğw’è
+    Vector2 _rayDirection = Vector2.down; // Rayã®æ–¹å‘ã‚’æŒ‡å®š
 
-    [SerializeField,Header("Ray‚Ì’·‚³")]
-    float _rayDistance = 0.1f; // Ray‚Ì’·‚³‚ğw’è
+    [SerializeField,Header("Rayã®é•·ã•")]
+    float _rayDistance = 0.1f; // Rayã®é•·ã•ã‚’æŒ‡å®š
 
     [SerializeField] bool _isGround;
     public bool IsGround => _isGround;
 
     private int _layerMask;
 
-    [SerializeField, Header("ƒvƒŒƒCƒ„[‚ÌAnimator")]
+    [SerializeField, Header("ãƒ—ãƒ¬ã‚¤ãƒ¤ãƒ¼ã®Animator")]
     private Animator _animator;
     public Animator Animator => _animator;
 
@@ -97,7 +105,7 @@ public class PlayerController : MonoBehaviour
     }
     void Update()
     {
-        _rayOrigin = transform.position; // Ray‚Ìn“_‚ğæ“¾
+        _rayOrigin = transform.position; // Rayã®å§‹ç‚¹ã‚’å–å¾—
         _isGround = Physics2D.Raycast(_rayOrigin, _rayDirection, _rayDistance, _layerMask);
         Debug.DrawRay(_rayOrigin, _rayDirection * _rayDistance, Color.red);
 
