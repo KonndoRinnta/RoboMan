@@ -28,6 +28,11 @@ public class StopState : IPlayerState
             playerController.ChangeState(PlayerState.Crouching);
         }
 
+        if (playerController.AttackInput)
+        {
+            playerController.ChangeState(PlayerState.NormalAttack);
+        }
+
         if (!playerController.IsGround)
         {
             playerController.ChangeState(PlayerState.Air);
