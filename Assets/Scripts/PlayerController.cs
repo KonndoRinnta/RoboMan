@@ -49,6 +49,8 @@ public class PlayerController : MonoBehaviour
 
     private int _layerMask;
 
+    private bool _playerFlip;
+
     [SerializeField, Header("プレイヤーのAnimator")]
     private Animator _animator;
     public Animator Animator => _animator;
@@ -120,10 +122,16 @@ public class PlayerController : MonoBehaviour
 
         CurrentState.OnStart(this);
     }
+
     public void OnMove(InputAction.CallbackContext context)
     {
         _moveInput = context.ReadValue<Vector2>().x;
-        _sR.flipX = _moveInput < 0 ? true : false;
+
+        if(_moveInput != 0)
+        {
+            _sR.flipX = _moveInput < 0 ? true : false;
+            if (_sR.flipX == true) _normalAttackHitBox.transform.rotation = Quaternion.Euler(0, 0, 0);
+        }
     }
     public void OnJump(InputAction.CallbackContext context)
     {
