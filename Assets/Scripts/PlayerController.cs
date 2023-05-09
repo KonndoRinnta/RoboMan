@@ -57,11 +57,16 @@ public class PlayerController : MonoBehaviour
 
     private SpriteRenderer _sR;
 
+    public bool FlipX => _sR.flipX;
+
     private Rigidbody2D _rb;
     public Rigidbody2D Rb => _rb;
 
     [SerializeField]private bool _airDashable = true;
     public bool AirDashable => _airDashable;
+
+    private bool _isInputDisable;
+    public bool IsInputDisable => _isInputDisable;
 
     private float _moveInput;
     public float MoveInput => _moveInput;
@@ -171,11 +176,23 @@ public class PlayerController : MonoBehaviour
     }
     public void NormalAttackCheckOn()
     {
+        if(FlipX)
+        {
+            _normalAttackHitBox.transform.rotation = new Quaternion(0f, 180f, 0f, 0f);
+        }
+        else
+        {
+            _normalAttackHitBox.transform.rotation = new Quaternion(0f, 0f, 0f, 0f);
+        }
         _normalAttackHitBox.SetActive(true);
     }
     public void NormalAttackCheckOff()
     {
         _normalAttackHitBox.SetActive(false);
+    }
+    public void InputDisable()
+    {
+        
     }
 }
 public enum PlayerState
