@@ -36,6 +36,9 @@ public class PlayerController : MonoBehaviour
     [SerializeField, Header("立ち攻撃のヒット判定Colliderの親オブジェクト")]
     private GameObject _normalAttackHitBox;
 
+    [SerializeField, Header("歩き攻撃のヒット判定Colliderの親オブジェクト")]
+    private GameObject _walkAttackHitBox;
+
     [SerializeField, Header("空中攻撃のヒット判定Colliderの親オブジェクト")]
     private GameObject _airAttackHitBox;
 
@@ -107,6 +110,7 @@ public class PlayerController : MonoBehaviour
         _stateData.Add(PlayerState.Crouching,new CrouchingState());
         _stateData.Add(PlayerState.Sliding,new SlidingState());
         _stateData.Add(PlayerState.NormalAttack,new NormalAttackState());
+        _stateData.Add(PlayerState.WalkAttack, new WalkAtkState());
         _stateData.Add(PlayerState.AirAttack,new AirAttackState());
         _stateData.Add(PlayerState.ChargeAttack,new ChargeAttackState());
         ChangeState(PlayerState.Stop);
@@ -199,6 +203,40 @@ public class PlayerController : MonoBehaviour
     {
         _normalAttackHitBox.SetActive(false);
     }
+    public void WalkAttackCheckOn()
+    {
+        if (FlipX)
+        {
+            _walkAttackHitBox.transform.rotation = new Quaternion(0f, 180f, 0f, 0f);
+        }
+        else
+        {
+            _walkAttackHitBox.transform.rotation = new Quaternion(0f, 0f, 0f, 0f);
+        }
+        _walkAttackHitBox.SetActive(true);
+    }
+    public void WalkAttackCheckOff()
+    {
+        _walkAttackHitBox.SetActive(false);
+    }
+
+    public void AirAttackCheckOn()
+    {
+        if (FlipX)
+        {
+            _airAttackHitBox.transform.rotation = new Quaternion(0f, 180f, 0f, 0f);
+        }
+        else
+        {
+            _airAttackHitBox.transform.rotation = new Quaternion(0f, 0f, 0f, 0f);
+        }
+        _airAttackHitBox.SetActive(true);
+    }
+    public void AirAttackCheckOff()
+    {
+        _airAttackHitBox    .SetActive(false);
+    }
+
     public void InputDisable()
     {
         _isInputDisable = true;
@@ -221,6 +259,7 @@ public enum PlayerState
     Crouching,
     Sliding,
     NormalAttack,
+    WalkAttack,
     AirAttack,
     ChargeAttack
 }

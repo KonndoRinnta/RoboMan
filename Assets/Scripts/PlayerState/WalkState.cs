@@ -20,7 +20,12 @@ public class WalkState : IPlayerState
             playerController.ChangeState(PlayerState.Dash);
         }
 
-        if(playerController.MoveInput == 0f)
+        if (playerController.AttackInput)
+        {
+            playerController.ChangeState(PlayerState.WalkAttack);
+        }
+
+        if (playerController.MoveInput == 0f)
         {
             playerController.ChangeState(PlayerState.Stop);
         }

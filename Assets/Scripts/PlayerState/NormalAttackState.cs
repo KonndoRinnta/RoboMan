@@ -18,7 +18,7 @@ public class NormalAttackState : IPlayerState
         playerController.Animator.Play("player_normal_atk");
         playerController.StartCoroutine(Execute(playerController));
     }
-    public void OnUpdate(PlayerController playerMove)
+    public void OnUpdate(PlayerController playerController)
     {
 
     }

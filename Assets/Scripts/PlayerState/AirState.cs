@@ -15,6 +15,11 @@ public class AirState : IPlayerState
             playerController.ChangeState(PlayerState.AirWalk);
         }
 
+        if (playerController.AttackInput)
+        {
+            playerController.ChangeState(PlayerState.AirAttack);
+        }
+
         if (playerController.IsGround)
         {
             playerController.ChangeState(PlayerState.Stop);

@@ -2,27 +2,24 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class AirAttackState : IPlayerState
+public class WalkAtkState : IPlayerState
 {
     public IEnumerator Execute(PlayerController playerController)
     {
         playerController.InputDisable();
-        playerController.AirAttackCheckOn();
+        playerController.WalkAttackCheckOn();
         yield return new WaitForSeconds(playerController.AttackTime);
-        playerController.AirAttackCheckOff();
+        playerController.WalkAttackCheckOff();
         playerController.InputAble();
-        playerController.ChangeState(PlayerState.Air);  
+        playerController.ChangeState(PlayerState.Stop);
     }
     public void OnStart(PlayerController playerController)
     {
-        playerController.Animator.Play("player_air_atk");
+        playerController.Animator.Play("player_walk_atk");
         playerController.StartCoroutine(Execute(playerController));
     }
     public void OnUpdate(PlayerController playerController)
     {
-        if(playerController.IsGround)
-        {
-            playerController.ChangeState(PlayerState.Stop);
-        }
+
     }
 }
