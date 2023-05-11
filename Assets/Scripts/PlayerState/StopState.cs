@@ -7,6 +7,9 @@ public class StopState : IPlayerState
 {
     public void OnStart(PlayerController playerController)
     {
+        playerController.Rb.constraints = RigidbodyConstraints2D.FreezePositionX;
+        playerController.Rb.constraints = RigidbodyConstraints2D.None;
+        playerController.Rb.freezeRotation = true;
         playerController.Animator.Play("player_stand");
         playerController.AirDashRemove();
     }

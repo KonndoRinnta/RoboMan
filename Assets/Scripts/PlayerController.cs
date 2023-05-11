@@ -33,9 +33,11 @@ public class PlayerController : MonoBehaviour
     private float _attackTime = 0.2f;
     public float AttackTime => _attackTime;
 
-    [SerializeField, Header("立ち攻撃のヒット判定Collider")]
+    [SerializeField, Header("立ち攻撃のヒット判定Colliderの親オブジェクト")]
     private GameObject _normalAttackHitBox;
-    public GameObject NormalAttackHitBox => _normalAttackHitBox;
+
+    [SerializeField, Header("空中攻撃のヒット判定Colliderの親オブジェクト")]
+    private GameObject _airAttackHitBox;
 
     Vector2 _rayOrigin; // Rayの始点
 
@@ -65,8 +67,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField]private bool _airDashable = true;
     public bool AirDashable => _airDashable;
 
-    private bool _isInputDisable;
-    public bool IsInputDisable => _isInputDisable;
+    private bool _isInputDisable = false;
 
     private float _moveInput;
     public float MoveInput => _moveInput;
@@ -130,33 +131,41 @@ public class PlayerController : MonoBehaviour
 
     public void OnMove(InputAction.CallbackContext context)
     {
-        _moveInput = context.ReadValue<Vector2>().x;
-
-        if(_moveInput != 0)
+        if (!_isInputDisable)
         {
-            _sR.flipX = _moveInput < 0 ? true : false;
-            if (_sR.flipX == true) _normalAttackHitBox.transform.rotation = Quaternion.Euler(0, 0, 0);
+            _moveInput = context.ReadValue<Vector2>().x;
+            if (_moveInput != 0)
+            {
+                _sR.flipX = _moveInput < 0 ? true : false;
+                if (_sR.flipX == true) _normalAttackHitBox.transform.rotation = Quaternion.Euler(0, 0, 0);
+            }
         }
+        else _moveInput = 0f;
     }
     public void OnJump(InputAction.CallbackContext context)
     {
-        _jumpInput = context.ReadValueAsButton();
+        if (!_isInputDisable) _jumpInput = context.ReadValueAsButton();
+        else _jumpInput = false;
     }
     public void OnDash(InputAction.CallbackContext context)
     {
-        _dashInput = context.ReadValueAsButton();
+        if (!_isInputDisable) _dashInput = context.ReadValueAsButton();
+        else _dashInput = false;
     }
     public void OnCrouching(InputAction.CallbackContext context)
     {
+        if (_isInputDisable) return;
         _crouchingInput = context.ReadValueAsButton();
     }
     public void OnSliding(InputAction.CallbackContext context)
     {
-        _slidingInput = context.ReadValueAsButton();
+        if (!_isInputDisable) _slidingInput = context.ReadValueAsButton();
+        else _slidingInput = false;
     }
     public void OnAttack(InputAction.CallbackContext context)
     {
-        _attackInput = context.ReadValueAsButton();
+        if (!_isInputDisable) _attackInput = context.ReadValueAsButton();
+        else _attackInput = false;
     }
     public void DashChecker()
     {
@@ -192,7 +201,12 @@ public class PlayerController : MonoBehaviour
     }
     public void InputDisable()
     {
-        
+        _isInputDisable = true;
+    }
+    public void InputAble()
+    {
+        _isInputDisable = false;
+        Debug.Log("S");
     }
 }
 public enum PlayerState
