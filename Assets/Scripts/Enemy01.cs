@@ -12,26 +12,21 @@ public class Enemy01 : EnemyBase
     Vector2 _rayDirection = Vector2.left; // Ray‚Ì•ûŒü‚ðŽw’è
 
     [SerializeField, Header("Ray‚Ì’·‚³")]
-    float _rayDistance = 0.1f; // Ray‚Ì’·‚³‚ðŽw’è
-
-    Transform _myTransform = default;
-
-    SpriteRenderer _sr;
+    float _rayDistance = 0.1f; // Ray‚Ì’·‚³‚ðŽw’èss
 
     [SerializeField]
-    Move _move = Move.Ible;
+    Move _moveDirection = Move.Ible;
 
-    private void OnEnable()
+    protected override void OnEnable()
     {
-        _sr = GetComponent<SpriteRenderer>();
-        _myTransform = this.transform;
-        if (_move == Move.Left)
+        base.OnEnable();
+        if (_moveDirection == Move.Left)
         {
-            _sr.flipX = false;
+            _sR.flipX = false;
         }
-        else if (_move == Move.Right)
+        else if (_moveDirection == Move.Right)
         {
-            _sr.flipX = true;
+            _sR.flipX = true;
         }
     }
 
@@ -39,13 +34,22 @@ public class Enemy01 : EnemyBase
     {
         
     }
+
     void Update()
     {
         EnemyMove();
     }   
+
     private void EnemyMove()
     {
-        
+        if(_moveDirection == Move.Left)
+        {
+            _rB.velocity = new Vector2(-_moveSpeed, 0);
+        }
+        if(_moveDirection == Move.Right)
+        {
+            _rB.velocity = new Vector2(_moveSpeed, 0);
+        }
     }
 
     enum Move

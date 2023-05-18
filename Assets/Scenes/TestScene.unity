@@ -135,7 +135,7 @@ GameObject:
   - component: {fileID: 409465225}
   m_Layer: 0
   m_Name: NormalAttackHitBox
-  m_TagString: Untagged
+  m_TagString: PlayerAtk
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -306,7 +306,7 @@ MonoBehaviour:
   _dashTime: 0.2
   _jumpPower: 9
   _hP: 5
-  _attack: 5
+  _attack: 1
   _attackTime: 0.4
   _normalAttackHitBox: {fileID: 1151281018}
   _walkAttackHitBox: {fileID: 2091328751}
@@ -530,7 +530,7 @@ GameObject:
   - component: {fileID: 1024531212}
   m_Layer: 0
   m_Name: AirAttackHitBox
-  m_TagString: Untagged
+  m_TagString: PlayerAtk
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -586,7 +586,7 @@ GameObject:
   - component: {fileID: 1151281019}
   m_Layer: 0
   m_Name: NormalAttackHitBoxParnent
-  m_TagString: Untagged
+  m_TagString: PlayerAtk
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -835,8 +835,10 @@ GameObject:
   - component: {fileID: 1544187574}
   - component: {fileID: 1544187573}
   - component: {fileID: 1544187572}
+  - component: {fileID: 1544187576}
+  - component: {fileID: 1544187577}
   m_Layer: 0
-  m_Name: Square
+  m_Name: Enemy01
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -923,6 +925,41 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!50 &1544187576
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1544187571}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
+--- !u!114 &1544187577
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1544187571}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6a26cb5d261c19941bd5cfe5f370a2c1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _enemyHp: 2
+  _enemyAtk: 50
 --- !u!1 &1835172522
 GameObject:
   m_ObjectHideFlags: 0
@@ -934,7 +971,7 @@ GameObject:
   - component: {fileID: 1835172523}
   m_Layer: 0
   m_Name: AirAttackHitBoxParnent
-  m_TagString: Untagged
+  m_TagString: PlayerAtk
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1049,7 +1086,7 @@ GameObject:
   - component: {fileID: 1994126456}
   m_Layer: 0
   m_Name: WalkAttackHitBox
-  m_TagString: Untagged
+  m_TagString: PlayerAtk
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1105,7 +1142,7 @@ GameObject:
   - component: {fileID: 2091328752}
   m_Layer: 0
   m_Name: WalkAttackHitBoxParnent
-  m_TagString: Untagged
+  m_TagString: PlayerAtk
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
