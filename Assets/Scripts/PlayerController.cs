@@ -22,7 +22,7 @@ public class PlayerController : MonoBehaviour
     public float JumpPower => _jumpPower;
 
     [SerializeField, Header("プレイヤーの体力")]
-    private float _hP = 5f;
+    private float _hP = 100f;
     public float HP => _hP;
 
     [SerializeField, Header("プレイヤーの攻撃力")]
