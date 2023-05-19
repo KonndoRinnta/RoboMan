@@ -40,6 +40,13 @@ public class Enemy01 : EnemyBase
         EnemyMove();
     }   
 
+    protected override void Damage()
+    {
+        base.Damage();
+
+        _enemyAnimator.Play("enemy01_damege");
+    }
+
     private void EnemyMove()
     {
         if(_moveDirection == Move.Left)

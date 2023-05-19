@@ -16,20 +16,14 @@ public class EnemyBase : MonoBehaviour
 
     private PlayerController _pC;
 
-    //void OnBecameVisible()
-    //{
-    //    this.gameObject.SetActive(true);
-    //}
-    //void OnBecameInvisible()
-    //{
-    //    this.gameObject.SetActive(false);
-    //}
+    protected Animator _enemyAnimator;
 
     protected virtual void OnEnable()
     {
         _sR ??= GetComponent<SpriteRenderer>();
         _rB ??= GetComponent<Rigidbody2D>();
         _pC ??= GetComponent<PlayerController>();
+        _enemyAnimator ??= GetComponent<Animator>();
     }
 
     private void Update()
@@ -45,7 +39,7 @@ public class EnemyBase : MonoBehaviour
         }
     }
 
-    public void Damage()
+    protected virtual void Damage()
     {
         Debug.Log("a");
         _enemyHp--;
