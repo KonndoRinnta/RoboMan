@@ -20,6 +20,7 @@ public class Enemy01 : EnemyBase
     protected override void OnEnable()
     {
         base.OnEnable();
+        _enemyAnimator.Play("enemy01_normal");
         if (_moveDirection == Move.Left)
         {
             _sR.flipX = false;
@@ -28,23 +29,24 @@ public class Enemy01 : EnemyBase
         {
             _sR.flipX = true;
         }
+
     }
 
     void Start()
     {
-        
+        _enemyAnimator.Play("enemy01_normal");
     }
 
-    void Update()
+    protected override void Update()
     {
+        base.Update();
         EnemyMove();
     }   
 
     protected override void Damage()
     {
+        
         base.Damage();
-
-        _enemyAnimator.Play("enemy01_damege");
     }
 
     private void EnemyMove()

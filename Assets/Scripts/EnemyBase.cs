@@ -10,6 +10,9 @@ public class EnemyBase : MonoBehaviour
     [SerializeField, Header("敵の攻撃力")]
     protected int _enemyAtk;
 
+    [SerializeField]
+    protected AnimationNames _animNames;
+
     protected SpriteRenderer _sR;
 
     protected Rigidbody2D _rB;
@@ -26,7 +29,7 @@ public class EnemyBase : MonoBehaviour
         _enemyAnimator ??= GetComponent<Animator>();
     }
 
-    private void Update()
+    protected virtual void Update()
     {
         Death();
     }
@@ -42,15 +45,33 @@ public class EnemyBase : MonoBehaviour
     protected virtual void Damage()
     {
         Debug.Log("a");
+        _enemyAnimator.Play(_animNames.DamegeAnimName);
         _enemyHp--;
     }
+
+    public void StopDamegeAnimation()
+    {
+        _enemyAnimator.Play(_animNames.NormalAnimName);
+    }
+
     public void Death()
     {
-        
         if(_enemyHp <= 0)
         {
-            Debug.Log("d");
             this.gameObject.SetActive(false);
         }
     }
+}
+[System.Serializable]
+public class AnimationNames
+{
+    public string NormalAnimName => _normalAnimName;
+
+    public string DamegeAnimName => _damegeAnimnName;
+
+    [SerializeField, Header("通常時のアニメーションの名前")]
+    protected string _normalAnimName;
+
+    [SerializeField, Header("ダメージを受けたときのアニメーション名前")]
+    protected string _damegeAnimnName;
 }

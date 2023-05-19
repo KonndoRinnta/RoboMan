@@ -305,7 +305,7 @@ MonoBehaviour:
   _dashPower: 15
   _dashTime: 0.2
   _jumpPower: 9
-  _hP: 5
+  _hP: 1000
   _attack: 1
   _attackTime: 0.4
   _normalAttackHitBox: {fileID: 1151281018}
@@ -975,11 +975,17 @@ MonoBehaviour:
   m_GameObject: {fileID: 1544187571}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6a26cb5d261c19941bd5cfe5f370a2c1, type: 3}
+  m_Script: {fileID: 11500000, guid: 5d929f733b4e95641931d49eac55df61, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _enemyHp: 2
   _enemyAtk: 50
+  _animNames:
+    _normalAnimName: enemy01_normal
+    _damegeAnimnName: enemy01_damege
+  _moveSpeed: 5
+  _rayDistance: 0.1
+  _moveDirection: 0
 --- !u!1 &1835172522
 GameObject:
   m_ObjectHideFlags: 0
