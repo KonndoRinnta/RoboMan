@@ -24,5 +24,10 @@ public class AirState : IPlayerState
         {
             playerController.ChangeState(PlayerState.Stop);
         }
+
+        if (playerController.IsDamege)
+        {
+            playerController.ChangeState(PlayerState.Damege);
+        }
     }
 }

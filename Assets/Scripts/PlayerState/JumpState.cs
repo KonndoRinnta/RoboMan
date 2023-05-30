@@ -19,6 +19,9 @@ public class JumpState : IPlayerState
 
     public void OnUpdate(PlayerController playerController)
     {
-
+        if (playerController.IsDamege)
+        {
+            playerController.ChangeState(PlayerState.Damege);
+        }
     }
 }

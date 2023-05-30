@@ -7,9 +7,6 @@ public class EnemyBase : MonoBehaviour
     [SerializeField,Header("“G‚Ì‘Ì—Í")]
     protected float _enemyHp = 2;
 
-    [SerializeField, Header("“G‚ÌUŒ‚—Í")]
-    protected int _enemyAtk;
-
     [SerializeField]
     protected AnimationNames _animNames;
 

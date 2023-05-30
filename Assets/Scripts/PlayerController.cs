@@ -22,7 +22,7 @@ public class PlayerController : MonoBehaviour
     public float JumpPower => _jumpPower;
 
     [SerializeField, Header("プレイヤーの体力")]
-    private float _hP = 100f;
+    private float _hP = 50f;
     public float HP => _hP;
 
     [SerializeField, Header("プレイヤーの攻撃力")]
@@ -34,7 +34,7 @@ public class PlayerController : MonoBehaviour
     public float AttackTime => _attackTime;
 
     [SerializeField, Header("ダメージヒット時の無敵時間")]
-    private float _damageInvincibleTime = 0.3f;
+    private float _damageInvincibleTime = 1f;
     public float DamageInvincibleTime => _damageInvincibleTime;
 
     [SerializeField, Header("立ち攻撃のヒット判定Colliderの親オブジェクト")]
@@ -46,8 +46,10 @@ public class PlayerController : MonoBehaviour
     [SerializeField, Header("空中攻撃のヒット判定Colliderの親オブジェクト")]
     private GameObject _airAttackHitBox;
 
-    [SerializeField,Header("無敵のオンオフ")]
-    private bool _isInvincible = false;
+    [Header("ダメージ判定中かのフラグ")]
+    private bool _isDamege = false;
+
+    public bool IsDamege => _isDamege;
 
     Vector2 _rayOrigin; // Rayの始点
 
@@ -245,19 +247,30 @@ public class PlayerController : MonoBehaviour
         _airAttackHitBox    .SetActive(false);
     }
 
-    public void InvisibleAble()
+    public void OnCollisionEnter2D(Collision2D collision)
     {
-        _isInvincible = true;
+        if(!_isDamege)
+        {
+            if (collision.gameObject.tag == "Enemy")
+            {
+                Debug.Log("ヒット");
+                _isDamege = true;
+            }
+        }
     }
 
-    public void InvisibleDisable()
+    public void IsDamegeDisable()
     {
-        _isInvincible = false;
+        _isDamege = false;
     }
 
     public void InputDisable()
     {
         _isInputDisable = true;
+    }
+    public void Damage()
+    {
+        _hP--;
     }
     public void InputAble()
     {

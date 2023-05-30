@@ -30,7 +30,7 @@ public class WalkState : IPlayerState
             playerController.ChangeState(PlayerState.Stop);
         }
 
-        if(playerController.IsGround == false)
+        if(!playerController.IsGround)
         {
             playerController.ChangeState(PlayerState.Air);
         }
@@ -43,6 +43,10 @@ public class WalkState : IPlayerState
         if (playerController.CrouchingInput)
         {
             playerController.ChangeState(PlayerState.Crouching);
+        }
+        if(playerController.IsDamege)
+        {
+            playerController.ChangeState(PlayerState.Damege);
         }
     }
 }

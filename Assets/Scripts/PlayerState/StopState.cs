@@ -40,5 +40,9 @@ public class StopState : IPlayerState
         {
             playerController.ChangeState(PlayerState.Air);
         }
+        if (playerController.IsDamege)
+        {
+            playerController.ChangeState(PlayerState.Damege);
+        }
     }
 }

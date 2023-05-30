@@ -5,17 +5,16 @@ using UnityEngine;
 public class Enemy01 : EnemyBase
 {
     [SerializeField, Header("速度")]
-    float _moveSpeed =  5f;
+    private float _moveSpeed =  5f;
 
-    Vector2 _rayOrigin; // Rayの始点
+    [SerializeField, Header("右の壁の衝突判定")]
+    private GameObject _rightWallHitCollider;
 
-    Vector2 _rayDirection = Vector2.left; // Rayの方向を指定
-
-    [SerializeField, Header("Rayの長さ")]
-    float _rayDistance = 0.1f; // Rayの長さを指定ss
+    [SerializeField, Header("左の壁の衝突判定")]
+    private GameObject _leftWallHitCollider;
 
     [SerializeField]
-    Move _moveDirection = Move.Ible;
+    private Move _moveDirection = Move.Ible;
 
     protected override void OnEnable()
     {
