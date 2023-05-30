@@ -33,6 +33,10 @@ public class PlayerController : MonoBehaviour
     private float _attackTime = 0.2f;
     public float AttackTime => _attackTime;
 
+    [SerializeField, Header("ダメージヒット時の無敵時間")]
+    private float _damageInvincibleTime = 0.3f;
+    public float DamageInvincibleTime => _damageInvincibleTime;
+
     [SerializeField, Header("立ち攻撃のヒット判定Colliderの親オブジェクト")]
     private GameObject _normalAttackHitBox;
 
@@ -41,6 +45,9 @@ public class PlayerController : MonoBehaviour
 
     [SerializeField, Header("空中攻撃のヒット判定Colliderの親オブジェクト")]
     private GameObject _airAttackHitBox;
+
+    [SerializeField,Header("無敵のオンオフ")]
+    private bool _isInvincible = false;
 
     Vector2 _rayOrigin; // Rayの始点
 
@@ -113,6 +120,7 @@ public class PlayerController : MonoBehaviour
         _stateData.Add(PlayerState.WalkAttack, new WalkAtkState());
         _stateData.Add(PlayerState.AirAttack,new AirAttackState());
         _stateData.Add(PlayerState.ChargeAttack,new ChargeAttackState());
+        _stateData.Add(PlayerState.Damege, new DamageState());
         ChangeState(PlayerState.Stop);
     }
     void Update()
@@ -237,6 +245,16 @@ public class PlayerController : MonoBehaviour
         _airAttackHitBox    .SetActive(false);
     }
 
+    public void InvisibleAble()
+    {
+        _isInvincible = true;
+    }
+
+    public void InvisibleDisable()
+    {
+        _isInvincible = false;
+    }
+
     public void InputDisable()
     {
         _isInputDisable = true;
@@ -261,5 +279,6 @@ public enum PlayerState
     NormalAttack,
     WalkAttack,
     AirAttack,
-    ChargeAttack
+    ChargeAttack,
+    Damege
 }

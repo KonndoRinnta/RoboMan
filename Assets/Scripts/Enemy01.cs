@@ -45,7 +45,6 @@ public class Enemy01 : EnemyBase
 
     protected override void Damage()
     {
-        
         base.Damage();
     }
 
