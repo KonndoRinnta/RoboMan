@@ -1,11 +1,13 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class EnemyBase : MonoBehaviour
 {
-    [SerializeField,Header("“G‚Ì‘Ì—Í")]
+    [SerializeField, Header("“G‚Ì‘Ì—Í")]
     protected float _enemyHp = 2;
+
+    [SerializeField, Header("–³“GŽžŠÔ")]
+    private float _damageInvisibleTime = 3f;
 
     [SerializeField]
     protected AnimationNames _animNames;
@@ -17,6 +19,8 @@ public class EnemyBase : MonoBehaviour
     private PlayerController _pC;
 
     protected Animator _enemyAnimator;
+
+    private bool _damegeFlag;
 
     protected virtual void OnEnable()
     {
@@ -33,17 +37,28 @@ public class EnemyBase : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if(collision.tag == "PlayerAtk")
+        if (collision.CompareTag("PlayerAtk"))
         {
             Damage();
         }
     }
 
+    public IEnumerator Execute()
+    {
+        yield return new WaitForSeconds(_damageInvisibleTime);
+    }
+
     protected virtual void Damage()
     {
         Debug.Log("a");
-        _enemyAnimator.Play(_animNames.DamegeAnimName);
-        _enemyHp--;
+        if (!_damegeFlag)
+        {
+            _damegeFlag = true;
+            _enemyAnimator.Play(_animNames.DamegeAnimName);
+            _enemyHp--;
+            StartCoroutine(Execute());
+            _damegeFlag = false;
+        }
     }
 
     public void StopDamegeAnimation()
@@ -53,7 +68,7 @@ public class EnemyBase : MonoBehaviour
 
     public void Death()
     {
-        if(_enemyHp <= 0)
+        if (_enemyHp <= 0)
         {
             this.gameObject.SetActive(false);
         }

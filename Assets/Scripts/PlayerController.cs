@@ -1,15 +1,14 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
 public class PlayerController : MonoBehaviour
 {
-    [SerializeField,Header("プレイヤーの速度")]
+    [SerializeField, Header("プレイヤーの速度")]
     private float _speed = 5f;
     public float Speed => _speed;
 
-    [SerializeField,Header("ダッシュのパワー")]
+    [SerializeField, Header("ダッシュのパワー")]
     private float _dashPower = 8f;
     public float DashPower => _dashPower;
 
@@ -22,12 +21,12 @@ public class PlayerController : MonoBehaviour
     public float JumpPower => _jumpPower;
 
     [SerializeField, Header("プレイヤーの体力")]
-    private float _hP = 50f;
+    private float _hP = 20f;
     public float HP => _hP;
 
-    [SerializeField, Header("プレイヤーの攻撃力")]
-    private float _attack = 1f;
-    public float Attack => _attack;
+    [SerializeField, Header("プレイヤーの体力の最大値")]
+    private float _hPMaxValue;
+    public float HPMaxValue => _hPMaxValue;
 
     [SerializeField, Header("攻撃時の硬直時間")]
     private float _attackTime = 0.2f;
@@ -55,7 +54,7 @@ public class PlayerController : MonoBehaviour
 
     Vector2 _rayDirection = Vector2.down; // Rayの方向を指定
 
-    [SerializeField,Header("Rayの長さ")]
+    [SerializeField, Header("Rayの長さ")]
     float _rayDistance = 0.1f; // Rayの長さを指定
 
     [SerializeField] bool _isGround;
@@ -76,7 +75,7 @@ public class PlayerController : MonoBehaviour
     private Rigidbody2D _rb;
     public Rigidbody2D Rb => _rb;
 
-    [SerializeField]private bool _airDashable = true;
+    [SerializeField] private bool _airDashable = true;
     public bool AirDashable => _airDashable;
 
     private bool _isInputDisable = false;
@@ -97,31 +96,32 @@ public class PlayerController : MonoBehaviour
     public bool SlidingInput => _slidingInput;
 
     private bool _attackInput;
-    public bool AttackInput => _attackInput; 
+    public bool AttackInput => _attackInput;
 
     PlayerState _currentState;
-    public IPlayerState CurrentState => _stateData[_currentState]; 
+    public IPlayerState CurrentState => _stateData[_currentState];
 
     public Dictionary<PlayerState, IPlayerState> _stateData = new Dictionary<PlayerState, IPlayerState>();
 
     private void Awake()
     {
+        _hP = _hPMaxValue;
         _sR = GetComponent<SpriteRenderer>();
         _layerMask = LayerMask.GetMask("Ground");
         _rb = GetComponent<Rigidbody2D>();
         _currentState = PlayerState.None;
-        _stateData.Add(PlayerState.Stop,new StopState());
-        _stateData.Add(PlayerState.Walk,new WalkState());
-        _stateData.Add(PlayerState.Jump,new JumpState());
-        _stateData.Add(PlayerState.Air,new AirState());
+        _stateData.Add(PlayerState.Stop, new StopState());
+        _stateData.Add(PlayerState.Walk, new WalkState());
+        _stateData.Add(PlayerState.Jump, new JumpState());
+        _stateData.Add(PlayerState.Air, new AirState());
         _stateData.Add(PlayerState.AirWalk, new AirWalkState());
-        _stateData.Add(PlayerState.Dash,new DashState());
-        _stateData.Add(PlayerState.Crouching,new CrouchingState());
-        _stateData.Add(PlayerState.Sliding,new SlidingState());
-        _stateData.Add(PlayerState.NormalAttack,new NormalAttackState());
+        _stateData.Add(PlayerState.Dash, new DashState());
+        _stateData.Add(PlayerState.Crouching, new CrouchingState());
+        _stateData.Add(PlayerState.Sliding, new SlidingState());
+        _stateData.Add(PlayerState.NormalAttack, new NormalAttackState());
         _stateData.Add(PlayerState.WalkAttack, new WalkAtkState());
-        _stateData.Add(PlayerState.AirAttack,new AirAttackState());
-        _stateData.Add(PlayerState.ChargeAttack,new ChargeAttackState());
+        _stateData.Add(PlayerState.AirAttack, new AirAttackState());
+        _stateData.Add(PlayerState.ChargeAttack, new ChargeAttackState());
         _stateData.Add(PlayerState.Damege, new DamageState());
         ChangeState(PlayerState.Stop);
     }
@@ -136,7 +136,7 @@ public class PlayerController : MonoBehaviour
     }
     public void ChangeState(PlayerState nextState)
     {
-        if(_currentState == nextState) return;
+        if (_currentState == nextState) return;
 
         _currentState = nextState;
 
@@ -199,7 +199,7 @@ public class PlayerController : MonoBehaviour
     }
     public void NormalAttackCheckOn()
     {
-        if(FlipX)
+        if (FlipX)
         {
             _normalAttackHitBox.transform.rotation = new Quaternion(0f, 180f, 0f, 0f);
         }
@@ -244,12 +244,12 @@ public class PlayerController : MonoBehaviour
     }
     public void AirAttackCheckOff()
     {
-        _airAttackHitBox    .SetActive(false);
+        _airAttackHitBox.SetActive(false);
     }
 
     public void OnCollisionEnter2D(Collision2D collision)
     {
-        if(!_isDamege)
+        if (!_isDamege)
         {
             if (collision.gameObject.tag == "Enemy")
             {
