@@ -80,7 +80,7 @@ public class PlayerController : MonoBehaviour
 
     [SerializeField]
     private GameManager _gM;
-    public GameManager GM => _gM; 
+    public GameManager GM => _gM;
 
     [SerializeField] private bool _airDashable = true;
     public bool AirDashable => _airDashable;
@@ -139,9 +139,14 @@ public class PlayerController : MonoBehaviour
         _rayOrigin = transform.position; // Rayの始点を取得
         _isGround = Physics2D.Raycast(_rayOrigin, _rayDirection, _rayDistance, _layerMask);
         Debug.DrawRay(_rayOrigin, _rayDirection * _rayDistance, Color.red);
+        OnGround();
 
         CurrentState.OnUpdate(this);
         Debug.Log(_currentState);
+    }
+    public void OnGround()
+    {
+        if (_isGround) Debug.Log("接地");
     }
     public void ChangeState(PlayerState nextState)
     {
@@ -187,8 +192,13 @@ public class PlayerController : MonoBehaviour
     }
     public void OnAttack(InputAction.CallbackContext context)
     {
-        if (!_isInputDisable) _attackInput = context.ReadValueAsButton();
-        else _attackInput = false;
+        if (_isInputDisable) return;
+        if (!context.performed) return;
+        _attackInput = true;
+    }
+    public void AttackInputDisAble()
+    {
+        _attackInput = false;
     }
     public void DashChecker()
     {
@@ -239,7 +249,7 @@ public class PlayerController : MonoBehaviour
         _walkAttackHitBox.SetActive(false);
     }
 
-    public void AirAttackCheckOn()
+    public void AirAttackColliderOn()
     {
         if (FlipX)
         {
@@ -251,7 +261,7 @@ public class PlayerController : MonoBehaviour
         }
         _airAttackHitBox.SetActive(true);
     }
-    public void AirAttackCheckOff()
+    public void AirAttackClliderOff()
     {
         _airAttackHitBox.SetActive(false);
     }
@@ -272,19 +282,18 @@ public class PlayerController : MonoBehaviour
     {
         _isDamege = false;
     }
+    public void Damage()
+    {
+        _hP--;
+    }
 
     public void InputDisable()
     {
         _isInputDisable = true;
     }
-    public void Damage()
-    {
-        _hP--;
-    }
     public void InputAble()
     {
         _isInputDisable = false;
-        Debug.Log("S");
     }
     public void Death()
     {

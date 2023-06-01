@@ -7,10 +7,11 @@ public class AirAttackState : IPlayerState
     public IEnumerator Execute(PlayerController playerController)
     {
         playerController.InputDisable();
-        playerController.AirAttackCheckOn();
+        playerController.AirAttackColliderOn();
         yield return new WaitForSeconds(playerController.AttackTime);
-        playerController.AirAttackCheckOff();
+        playerController.AirAttackClliderOff();
         playerController.InputAble();
+        playerController.AttackInputDisAble();
         playerController.ChangeState(PlayerState.Air);  
     }
     public void OnStart(PlayerController playerController)

@@ -11,6 +11,7 @@ public class WalkAtkState : IPlayerState
         yield return new WaitForSeconds(playerController.AttackTime);
         playerController.WalkAttackCheckOff();
         playerController.InputAble();
+        playerController.AttackInputDisAble();
         playerController.ChangeState(PlayerState.Stop);
     }
     public void OnStart(PlayerController playerController)

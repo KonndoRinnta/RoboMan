@@ -23,9 +23,5 @@ public class JumpState : IPlayerState
         {
             playerController.ChangeState(PlayerState.Damege);
         }
-        if (playerController.AttackInput)
-        {
-            playerController.ChangeState(PlayerState.AirAttack);
-        }
     }
 }
