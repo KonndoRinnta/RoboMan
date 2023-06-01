@@ -68,12 +68,19 @@ public class PlayerController : MonoBehaviour
     private Animator _animator;
     public Animator Animator => _animator;
 
+    private GameObject _player;
+    public GameObject Player => _player;
+
     private SpriteRenderer _sR;
 
     public bool FlipX => _sR.flipX;
 
     private Rigidbody2D _rb;
     public Rigidbody2D Rb => _rb;
+
+    [SerializeField]
+    private GameManager _gM;
+    public GameManager GM => _gM; 
 
     [SerializeField] private bool _airDashable = true;
     public bool AirDashable => _airDashable;
@@ -107,8 +114,9 @@ public class PlayerController : MonoBehaviour
     {
         _hP = _hPMaxValue;
         _sR = GetComponent<SpriteRenderer>();
-        _layerMask = LayerMask.GetMask("Ground");
         _rb = GetComponent<Rigidbody2D>();
+        _player = this.gameObject;
+        _layerMask = LayerMask.GetMask("Ground");
         _currentState = PlayerState.None;
         _stateData.Add(PlayerState.Stop, new StopState());
         _stateData.Add(PlayerState.Walk, new WalkState());
@@ -123,6 +131,7 @@ public class PlayerController : MonoBehaviour
         _stateData.Add(PlayerState.AirAttack, new AirAttackState());
         _stateData.Add(PlayerState.ChargeAttack, new ChargeAttackState());
         _stateData.Add(PlayerState.Damege, new DamageState());
+        _stateData.Add(PlayerState.GameOver, new GameoverState());
         ChangeState(PlayerState.Stop);
     }
     void Update()
@@ -277,6 +286,15 @@ public class PlayerController : MonoBehaviour
         _isInputDisable = false;
         Debug.Log("S");
     }
+    public void Death()
+    {
+        _player.SetActive(false);
+    }
+    public void FreezePosition()
+    {
+        _rb.constraints = RigidbodyConstraints2D.FreezePositionX;
+        _rb.constraints = RigidbodyConstraints2D.FreezePositionY;
+    }
 }
 public enum PlayerState
 {
@@ -293,5 +311,6 @@ public enum PlayerState
     WalkAttack,
     AirAttack,
     ChargeAttack,
-    Damege
+    Damege,
+    GameOver
 }

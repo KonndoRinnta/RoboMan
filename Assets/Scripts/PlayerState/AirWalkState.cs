@@ -36,5 +36,10 @@ public class AirWalkState : IPlayerState
         {
             playerController.ChangeState(PlayerState.Stop);
         }
+
+        if (playerController.IsDamege)
+        {
+            playerController.ChangeState(PlayerState.Damege);
+        }
     }
 }

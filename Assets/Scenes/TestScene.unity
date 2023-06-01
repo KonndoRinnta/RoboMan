@@ -493,7 +493,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 430}
+  m_AnchoredPosition: {x: 0, y: 1042}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &390565516
@@ -758,6 +758,7 @@ MonoBehaviour:
   _rayDistance: 1.35
   _isGround: 1
   _animator: {fileID: 443215990}
+  _gM: {fileID: 1256981878}
   _airDashable: 1
 --- !u!70 &443215994
 CapsuleCollider2D:
@@ -1157,6 +1158,7 @@ GameObject:
   - component: {fileID: 493093374}
   - component: {fileID: 493093373}
   - component: {fileID: 493093372}
+  - component: {fileID: 493093375}
   m_Layer: 5
   m_Name: BackTitleButton
   m_TagString: Untagged
@@ -1266,6 +1268,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 493093370}
   m_CullTransparentMesh: 1
+--- !u!114 &493093375
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 493093370}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8968b34c48c65bd4db2a3e424bf148d7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _loadSceneName: 
 --- !u!1 &522996109
 GameObject:
   m_ObjectHideFlags: 0
@@ -1353,6 +1368,7 @@ GameObject:
   - component: {fileID: 794115730}
   - component: {fileID: 794115729}
   - component: {fileID: 794115728}
+  - component: {fileID: 794115731}
   m_Layer: 5
   m_Name: RetryButton
   m_TagString: Untagged
@@ -1423,7 +1439,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 794115729}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 794115731}
+        m_TargetAssemblyTypeName: LoadScene, Assembly-CSharp
+        m_MethodName: SceneLoad
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &794115729
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1462,6 +1490,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 794115726}
   m_CullTransparentMesh: 1
+--- !u!114 &794115731
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 794115726}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8968b34c48c65bd4db2a3e424bf148d7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _loadSceneName: TestScene
 --- !u!1 &913030962
 GameObject:
   m_ObjectHideFlags: 0
