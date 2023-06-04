@@ -27,7 +27,7 @@ public class AirWalkState : IPlayerState
             playerController.ChangeState(PlayerState.Dash);
         }
 
-        if(playerController.AttackInput && playerController.AirAtkAble)
+        if(playerController.AttackInput)
         {
             playerController.ChangeState(PlayerState.AirAttack);
         }
