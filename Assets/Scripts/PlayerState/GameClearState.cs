@@ -2,16 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class GameClearState : MonoBehaviour
+public class GameClearState : IPlayerState
 {
-    // Start is called before the first frame update
-    void Start()
+    public void OnStart(PlayerController playerController)
     {
         
     }
-
-    // Update is called once per frame
-    void Update()
+    public void OnUpdate(PlayerController playerController)
     {
         
     }
