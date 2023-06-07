@@ -6,7 +6,7 @@ public class PlayerView : MonoBehaviour
     [SerializeField, Header("体力のスライダー")]
     private Slider _hPSlider;
 
-    [SerializeField]
+    [SerializeField,Header("PlayerController")]
     PlayerController _pC;
 
     private void Start()

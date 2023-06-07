@@ -132,6 +132,7 @@ public class PlayerController : MonoBehaviour
         _stateData.Add(PlayerState.ChargeAttack, new ChargeAttackState());
         _stateData.Add(PlayerState.Damege, new DamageState());
         _stateData.Add(PlayerState.GameOver, new GameoverState());
+        _stateData.Add(PlayerState.GameOver,new)
         ChangeState(PlayerState.Stop);
     }
     void Update()
@@ -321,5 +322,6 @@ public enum PlayerState
     AirAttack,
     ChargeAttack,
     Damege,
-    GameOver
+    GameOver,
+    GameClear
 }
