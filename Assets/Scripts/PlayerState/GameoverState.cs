@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class GameoverState : IPlayerState
+public class GameOverState : IPlayerState
 {
     public IEnumerator Execute(PlayerController playerController)
     {

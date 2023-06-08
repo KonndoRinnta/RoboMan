@@ -29,5 +29,9 @@ public class AirState : IPlayerState
         {
             playerController.ChangeState(PlayerState.Damege);
         }
+        if(playerController.transform.position.y <= -10)
+        {
+            playerController.ChangeState(PlayerState.GameOver);
+        }
     }
 }

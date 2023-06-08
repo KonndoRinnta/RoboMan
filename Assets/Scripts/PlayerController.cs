@@ -50,6 +50,9 @@ public class PlayerController : MonoBehaviour
 
     public bool IsDamege => _isDamege;
 
+    private bool _isFall;
+    public bool IsFall => _isFall;
+
     Vector2 _rayOrigin; // Rayの始点
 
     Vector2 _rayDirection = Vector2.down; // Rayの方向を指定
@@ -131,8 +134,8 @@ public class PlayerController : MonoBehaviour
         _stateData.Add(PlayerState.AirAttack, new AirAttackState());
         _stateData.Add(PlayerState.ChargeAttack, new ChargeAttackState());
         _stateData.Add(PlayerState.Damege, new DamageState());
-        _stateData.Add(PlayerState.GameOver, new GameoverState());
-        _stateData.Add(PlayerState.GameOver, new GameClearState());
+        _stateData.Add(PlayerState.GameOver, new GameOverState());
+        _stateData.Add(PlayerState.GameClear, new GameClearState());
         ChangeState(PlayerState.Stop);
     }
     void Update()
@@ -158,6 +161,7 @@ public class PlayerController : MonoBehaviour
         CurrentState.OnStart(this);
     }
 
+    //頭にOnとつく関数はUnity上にてInputSystemで使用しているため参照0個で大丈夫
     public void OnMove(InputAction.CallbackContext context)
     {
         if (!_isInputDisable)
@@ -287,7 +291,6 @@ public class PlayerController : MonoBehaviour
     {
         _hP--;
     }
-
     public void InputDisable()
     {
         _isInputDisable = true;
