@@ -300,6 +300,11 @@ public class PlayerController : MonoBehaviour
         }
     }
 
+    public void OnTriggerExit2D(Collider2D collision)
+    {
+        
+    }
+
     public void IsDamegeDisable()
     {
         _isDamege = false;

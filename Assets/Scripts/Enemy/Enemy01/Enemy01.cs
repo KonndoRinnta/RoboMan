@@ -41,13 +41,16 @@ public class Enemy01 : EnemyBase
 
     private void EnemyMove()
     {
-        if (_moveDirection == Move.Left)
+        if(_isMove)
         {
-            _rB.velocity = new Vector2(-_moveSpeed, _rB.velocity.y);
-        }
-        if (_moveDirection == Move.Right)
-        {
-            _rB.velocity = new Vector2(_moveSpeed, _rB.velocity.y);
+            if (_moveDirection == Move.Left)
+            {
+                _rB.velocity = new Vector2(-_moveSpeed, _rB.velocity.y);
+            }
+            if (_moveDirection == Move.Right)
+            {
+                _rB.velocity = new Vector2(_moveSpeed, _rB.velocity.y);
+            }
         }
     }
 

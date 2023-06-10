@@ -9,6 +9,9 @@ public class EnemyBase : MonoBehaviour
     [SerializeField, Header("ñ≥ìGéûä‘")]
     private float _damageInvisibleTime = 3f;
 
+    [SerializeField, Header("É_ÉÅÅ[ÉWâπ")]
+    private AudioClip _damageSound;
+
     [SerializeField]
     protected AnimationNames _animNames;
 
@@ -17,16 +20,21 @@ public class EnemyBase : MonoBehaviour
     protected Rigidbody2D _rB;
 
     private PlayerController _pC;
+    
+    private AudioSource _aS;
 
     protected Animator _enemyAnimator;
 
     private bool _damegeFlag;
+
+    protected bool _isMove = false;
 
     protected virtual void OnEnable()
     {
         _sR ??= GetComponent<SpriteRenderer>();
         _rB ??= GetComponent<Rigidbody2D>();
         _pC ??= GetComponent<PlayerController>();
+        _aS ??= GetComponent<AudioSource>();
         _enemyAnimator ??= GetComponent<Animator>();
     }
 
@@ -42,6 +50,15 @@ public class EnemyBase : MonoBehaviour
             Damage();
         }
     }
+    private void OnWillRenderObject()
+    {
+        _isMove = true;
+    }
+
+    private void OnBecameInvisible()
+    {
+        _isMove = false;
+    }
 
     public IEnumerator Execute()
     {
@@ -50,6 +67,8 @@ public class EnemyBase : MonoBehaviour
 
     protected virtual void Damage()
     {
+        _aS.PlayOneShot(_damageSound);
+
         Debug.Log("a");
         if (!_damegeFlag)
         {
