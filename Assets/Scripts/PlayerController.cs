@@ -83,6 +83,7 @@ public class PlayerController : MonoBehaviour
     private GameObject _player;
     public GameObject Player => _player;
 
+    [SerializeField]
     private SpriteRenderer _sR;
 
     public bool FlipX => _sR.flipX;
@@ -125,7 +126,7 @@ public class PlayerController : MonoBehaviour
     private void Awake()
     {
         _hP = _hPMaxValue;
-        _sR = GetComponent<SpriteRenderer>();
+        //_sR = GetComponent<SpriteRenderer>();
         _rb = GetComponent<Rigidbody2D>();
         _player = this.gameObject;
         _layerMask = LayerMask.GetMask("Ground");
@@ -284,9 +285,8 @@ public class PlayerController : MonoBehaviour
     {
         if (!_isDamege)
         {
-            if (collision.gameObject.tag == "Enemy")
+            if (collision.gameObject.tag.Equals("Enemy"))
             {
-                Debug.Log("ヒット");
                 _isDamege = true;
             }
         }
@@ -294,7 +294,7 @@ public class PlayerController : MonoBehaviour
 
     public void OnTriggerEnter2D(Collider2D collision)
     {
-        if(collision.gameObject.tag == "Goal")
+        if (collision.gameObject.tag.Equals("Goal"))
         {
             _isGameClear = true;
         }
