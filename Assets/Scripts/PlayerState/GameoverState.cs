@@ -8,8 +8,8 @@ public class GameOverState : IPlayerState
     {
         playerController.InputDisable();
         playerController.FreezePosition();
-        yield return new WaitForSeconds(playerController.DamageInvincibleTime);
-        playerController.Death();
+        yield return new WaitForSeconds(playerController.GameOverAnimTime);
+        playerController.PlayerDisable();
         playerController.GM.IsGameOver();
     }
     public void OnStart(PlayerController playerController)

@@ -17,7 +17,7 @@ public class GameManager : MonoBehaviour
     {
         _gameOverPanel.gameObject.SetActive(true);
     }
-    public void IsGameCreal()
+    public void IsGameClear()
     {
         _gameClearPanel.gameObject.SetActive(true);
     }

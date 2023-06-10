@@ -36,6 +36,14 @@ public class PlayerController : MonoBehaviour
     private float _damageInvincibleTime = 1f;
     public float DamageInvincibleTime => _damageInvincibleTime;
 
+    [SerializeField, Header("ゲームオーバーアニメーションの再生時間")]
+    private float _gameOverAnimTime = 0.5f;
+    public float GameOverAnimTime => _gameOverAnimTime;
+
+    [SerializeField, Header("ゲームクリアアニメーションの再生時間")]
+    private float _gameClearAnimTime = 1.6f;
+    public float GameClearAnimTime => _gameClearAnimTime; 
+
     [SerializeField, Header("立ち攻撃のヒット判定Colliderの親オブジェクト")]
     private GameObject _normalAttackHitBox;
 
@@ -299,7 +307,7 @@ public class PlayerController : MonoBehaviour
     {
         _isInputDisable = false;
     }
-    public void Death()
+    public void PlayerDisable()
     {
         _player.SetActive(false);
     }
