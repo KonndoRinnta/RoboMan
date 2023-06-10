@@ -55,11 +55,15 @@ public class PlayerController : MonoBehaviour
 
     [Header("ダメージ判定中かのフラグ")]
     private bool _isDamege = false;
-
     public bool IsDamege => _isDamege;
 
-    private bool _isFall;
-    public bool IsFall => _isFall;
+    [Header("接地中かのフラグ")] 
+    private bool _isGround;
+    public bool IsGround => _isGround;
+
+    [Header("ステージクリアの判定")]
+    private bool _isGameClear;
+    public bool IsGameClear => _isGameClear;
 
     Vector2 _rayOrigin; // Rayの始点
 
@@ -67,9 +71,6 @@ public class PlayerController : MonoBehaviour
 
     [SerializeField, Header("Rayの長さ")]
     float _rayDistance = 0.1f; // Rayの長さを指定
-
-    [SerializeField] bool _isGround;
-    public bool IsGround => _isGround;
 
     private int _layerMask;
 
@@ -288,6 +289,14 @@ public class PlayerController : MonoBehaviour
                 Debug.Log("ヒット");
                 _isDamege = true;
             }
+        }
+    }
+
+    public void OnTriggerEnter2D(Collider2D collision)
+    {
+        if(collision.gameObject.tag == "Goal")
+        {
+            _isGameClear = true;
         }
     }
 
