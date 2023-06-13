@@ -138,7 +138,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5d929f733b4e95641931d49eac55df61, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _enemyHp: 10
+  _enemyHp: 4
   _damageInvisibleTime: 3
   _damageSound: {fileID: 8300000, guid: fa6c3de1f5186874e85a4003802a008c, type: 3}
   _animNames:

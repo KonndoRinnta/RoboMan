@@ -14,6 +14,7 @@ public class GameClearState : IPlayerState
     public void OnStart(PlayerController playerController)
     {
         playerController.Animator.Play("player_gameclear");
+        playerController.StartCoroutine(Execute(playerController));
     }
     public void OnUpdate(PlayerController playerController)
     {

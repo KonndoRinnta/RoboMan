@@ -213,8 +213,8 @@ MonoBehaviour:
   _dashPower: 15
   _dashTime: 0.2
   _jumpPower: 9
-  _hP: 2
-  _hPMaxValue: 20
+  _hP: 15
+  _hPMaxValue: 15
   _attackTime: 0.4
   _damageInvincibleTime: 1
   _gameOverAnimTime: 0.8

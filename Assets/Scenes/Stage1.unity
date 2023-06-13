@@ -325,18 +325,18 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0.09540558, y: -0.08177775}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 2.9, y: 2.22}
+    oldSize: {x: 2.56, y: 5.12}
     newSize: {x: 0.24, y: 0.24}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 2.3902283, y: 4.053041}
   m_EdgeRadius: 0
 --- !u!4 &141586461
 Transform:
@@ -346,7 +346,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 141586459}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 81.4, y: -1.29, z: 2}
+  m_LocalPosition: {x: 81.4, y: -0.13, z: 2}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -392,7 +392,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 0f061b4bd0275bc4eb60f2af31e7375a, type: 3}
+  m_Sprite: {fileID: 21300000, guid: a3e46c27dc7986f47b81709723b43b04, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -689,6 +689,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a9a93c2d056d04e4db32cb84b0897541, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &402232360 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1029602247024919325, guid: 0b47dc90bc11a764ba0882ff147dd26e, type: 3}
+  m_PrefabInstance: {fileID: 450852312}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &450852312
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -696,6 +701,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2988362147720743937, guid: 0b47dc90bc11a764ba0882ff147dd26e, type: 3}
+      propertyPath: _loadSceneName
+      value: Stage1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3725218865350095060, guid: 0b47dc90bc11a764ba0882ff147dd26e, type: 3}
+      propertyPath: _loadSceneName
+      value: Title
+      objectReference: {fileID: 0}
     - target: {fileID: 6185959015603252110, guid: 0b47dc90bc11a764ba0882ff147dd26e, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0
@@ -903,6 +916,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f4d8151395ea8fa479c9b22a131b96b7, type: 3}
+--- !u!1 &574426391 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6185959016069606888, guid: 0b47dc90bc11a764ba0882ff147dd26e, type: 3}
+  m_PrefabInstance: {fileID: 450852312}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &627110400
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1517,6 +1535,14 @@ PrefabInstance:
       propertyPath: _gameClearPanel
       value: 
       objectReference: {fileID: 1900221549}
+    - target: {fileID: 5535747197780994481, guid: a978b2bc54acab2438b093f91b5aee9f, type: 3}
+      propertyPath: _gameOverFirstButton
+      value: 
+      objectReference: {fileID: 574426391}
+    - target: {fileID: 5535747197780994481, guid: a978b2bc54acab2438b093f91b5aee9f, type: 3}
+      propertyPath: _gameClearFirstButton
+      value: 
+      objectReference: {fileID: 402232360}
     - target: {fileID: 5535747197780994482, guid: a978b2bc54acab2438b093f91b5aee9f, type: 3}
       propertyPath: m_Name
       value: GameManager
@@ -2289,6 +2315,10 @@ PrefabInstance:
       propertyPath: _gM
       value: 
       objectReference: {fileID: 1856200731}
+    - target: {fileID: 2232143883776566865, guid: 092cb4370db46144da8f12ce145b7589, type: 3}
+      propertyPath: _gameClearAnimTime
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 2232143883776566877, guid: 092cb4370db46144da8f12ce145b7589, type: 3}
       propertyPath: m_Name
       value: Player
