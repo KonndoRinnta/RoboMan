@@ -15,6 +15,9 @@ public class EnemyBase : MonoBehaviour
     [SerializeField]
     protected AnimationNames _animNames;
 
+    [SerializeField]
+    protected GameManager _gM;
+
     protected SpriteRenderer _sR;
 
     protected Rigidbody2D _rB;
@@ -89,6 +92,7 @@ public class EnemyBase : MonoBehaviour
     {
         if (_enemyHp <= 0)
         {
+            _gM.KillCount();
             this.gameObject.SetActive(false);
         }
     }

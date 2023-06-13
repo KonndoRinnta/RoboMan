@@ -18,6 +18,7 @@ public class GameManager : MonoBehaviour
     GameObject _gameClearFirstButton;
 
     private int _enemyKillCount;
+    public int EnemyKillCount => _enemyKillCount;
 
     private bool _gameOver;
     public void IsGameOver()
@@ -31,5 +32,10 @@ public class GameManager : MonoBehaviour
         _gameClearPanel.gameObject.SetActive(true);
         EventSystem.current.SetSelectedGameObject(null);
         EventSystem.current.SetSelectedGameObject(_gameClearFirstButton);
+    }
+    public void KillCount()
+    {
+        Debug.Log("p");
+        _enemyKillCount++;
     }
 }

@@ -178,6 +178,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Enemy01
       objectReference: {fileID: 0}
+    - target: {fileID: 7619694045809760702, guid: f4d8151395ea8fa479c9b22a131b96b7, type: 3}
+      propertyPath: _gM
+      value: 
+      objectReference: {fileID: 1856200731}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f4d8151395ea8fa479c9b22a131b96b7, type: 3}
 --- !u!1 &88134964
@@ -676,6 +680,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Enemy01 (3)
       objectReference: {fileID: 0}
+    - target: {fileID: 7619694045809760702, guid: f4d8151395ea8fa479c9b22a131b96b7, type: 3}
+      propertyPath: _gM
+      value: 
+      objectReference: {fileID: 1856200731}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f4d8151395ea8fa479c9b22a131b96b7, type: 3}
 --- !u!114 &367002670 stripped
@@ -810,6 +818,10 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6185959015815257902, guid: 0b47dc90bc11a764ba0882ff147dd26e, type: 3}
+      propertyPath: _gM
+      value: 
+      objectReference: {fileID: 1856200731}
+    - target: {fileID: 6185959015815257902, guid: 0b47dc90bc11a764ba0882ff147dd26e, type: 3}
       propertyPath: _pC
       value: 
       objectReference: {fileID: 367002670}
@@ -914,6 +926,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Enemy01 (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 7619694045809760702, guid: f4d8151395ea8fa479c9b22a131b96b7, type: 3}
+      propertyPath: _gM
+      value: 
+      objectReference: {fileID: 1856200731}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f4d8151395ea8fa479c9b22a131b96b7, type: 3}
 --- !u!1 &574426391 stripped
@@ -976,6 +992,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Enemy01 (6)
       objectReference: {fileID: 0}
+    - target: {fileID: 7619694045809760702, guid: f4d8151395ea8fa479c9b22a131b96b7, type: 3}
+      propertyPath: _gM
+      value: 
+      objectReference: {fileID: 1856200731}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f4d8151395ea8fa479c9b22a131b96b7, type: 3}
 --- !u!1001 &734006946
@@ -1033,6 +1053,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Enemy01 (7)
       objectReference: {fileID: 0}
+    - target: {fileID: 7619694045809760702, guid: f4d8151395ea8fa479c9b22a131b96b7, type: 3}
+      propertyPath: _gM
+      value: 
+      objectReference: {fileID: 1856200731}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f4d8151395ea8fa479c9b22a131b96b7, type: 3}
 --- !u!1001 &780072939
@@ -1090,6 +1114,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Enemy01 (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 7619694045809760702, guid: f4d8151395ea8fa479c9b22a131b96b7, type: 3}
+      propertyPath: _gM
+      value: 
+      objectReference: {fileID: 1856200731}
     - target: {fileID: 7619694045809760702, guid: f4d8151395ea8fa479c9b22a131b96b7, type: 3}
       propertyPath: _damageSound
       value: 
@@ -2149,6 +2177,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Enemy01 (5)
       objectReference: {fileID: 0}
+    - target: {fileID: 7619694045809760702, guid: f4d8151395ea8fa479c9b22a131b96b7, type: 3}
+      propertyPath: _gM
+      value: 
+      objectReference: {fileID: 1856200731}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f4d8151395ea8fa479c9b22a131b96b7, type: 3}
 --- !u!1 &1678502334
@@ -2651,6 +2683,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Enemy01 (4)
       objectReference: {fileID: 0}
+    - target: {fileID: 7619694045809760702, guid: f4d8151395ea8fa479c9b22a131b96b7, type: 3}
+      propertyPath: _gM
+      value: 
+      objectReference: {fileID: 1856200731}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f4d8151395ea8fa479c9b22a131b96b7, type: 3}
 --- !u!1 &2102664538
