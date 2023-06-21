@@ -1213,6 +1213,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ea24d641d72ae5148a5ba5dbf6318157, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1127176932 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: -4479698439567203475, guid: a978b2bc54acab2438b093f91b5aee9f, type: 3}
+  m_PrefabInstance: {fileID: 1127176930}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6df821cc4fc4cba46a6155fa6fe9cff1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1210849763
 GameObject:
   m_ObjectHideFlags: 0
@@ -1805,6 +1816,10 @@ PrefabInstance:
       propertyPath: _gM
       value: 
       objectReference: {fileID: 1127176931}
+    - target: {fileID: 2232143883776566865, guid: 092cb4370db46144da8f12ce145b7589, type: 3}
+      propertyPath: _pm
+      value: 
+      objectReference: {fileID: 1127176932}
     - target: {fileID: 2232143883776566865, guid: 092cb4370db46144da8f12ce145b7589, type: 3}
       propertyPath: _gameClearAnimTime
       value: 3

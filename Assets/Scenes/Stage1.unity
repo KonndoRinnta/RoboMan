@@ -686,6 +686,17 @@ PrefabInstance:
       objectReference: {fileID: 1856200731}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f4d8151395ea8fa479c9b22a131b96b7, type: 3}
+--- !u!114 &236127195 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: -4479698439567203475, guid: a978b2bc54acab2438b093f91b5aee9f, type: 3}
+  m_PrefabInstance: {fileID: 1311178192}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6df821cc4fc4cba46a6155fa6fe9cff1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &367002670 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 2232143883776566865, guid: 092cb4370db46144da8f12ce145b7589, type: 3}
@@ -2474,6 +2485,10 @@ PrefabInstance:
       propertyPath: _gM
       value: 
       objectReference: {fileID: 1856200731}
+    - target: {fileID: 2232143883776566865, guid: 092cb4370db46144da8f12ce145b7589, type: 3}
+      propertyPath: _pm
+      value: 
+      objectReference: {fileID: 236127195}
     - target: {fileID: 2232143883776566865, guid: 092cb4370db46144da8f12ce145b7589, type: 3}
       propertyPath: _gameClearAnimTime
       value: 3
