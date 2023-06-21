@@ -24,4 +24,8 @@ public class JumpState : IPlayerState
             playerController.ChangeState(PlayerState.Damege);
         }
     }
+    public void OnEnd(PlayerController playerController)
+    {
+
+    }
 }

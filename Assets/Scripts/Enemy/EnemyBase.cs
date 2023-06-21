@@ -44,6 +44,7 @@ public class EnemyBase : MonoBehaviour
     protected virtual void Update()
     {
         Death();
+        EnemyPause();
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -94,6 +95,17 @@ public class EnemyBase : MonoBehaviour
         {
             _gM.KillCount();
             this.gameObject.SetActive(false);
+        }
+    }
+    public void EnemyPause()
+    {
+        if(PauseManager.I.IsPausing)
+        {
+            _rB.constraints = RigidbodyConstraints2D.FreezeAll;
+        }
+        else
+        {
+            _rB.constraints = RigidbodyConstraints2D.FreezeRotation;
         }
     }
 }

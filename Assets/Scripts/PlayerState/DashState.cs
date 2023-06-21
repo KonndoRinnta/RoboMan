@@ -28,4 +28,8 @@ public class DashState : IPlayerState
     {
 
     }
+    public void OnEnd(PlayerController playerController)
+    {
+
+    }
 }

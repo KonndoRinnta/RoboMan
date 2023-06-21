@@ -26,4 +26,8 @@ public class AirAttackState : IPlayerState
             playerController.ChangeState(PlayerState.Stop);
         }
     }
+    public void OnEnd(PlayerController playerController)
+    {
+
+    }
 }

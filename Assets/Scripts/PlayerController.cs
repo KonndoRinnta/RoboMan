@@ -95,6 +95,9 @@ public class PlayerController : MonoBehaviour
     private GameManager _gM;
     public GameManager GM => _gM;
 
+    [SerializeField]
+    private PauseManager _pm;
+
     [SerializeField] private bool _airDashable = true;
     public bool AirDashable => _airDashable;
 
@@ -118,10 +121,19 @@ public class PlayerController : MonoBehaviour
     private bool _attackInput;
     public bool AttackInput => _attackInput;
 
+    private bool _pauseInput;
+    public bool PauseInput => _pauseInput;
+
     PlayerState _currentState;
     public IPlayerState CurrentState => _stateData[_currentState];
 
+    PlayerState _beforeState;
+
+    IPlayerState _beforeIstate = null;
+
     public Dictionary<PlayerState, IPlayerState> _stateData = new Dictionary<PlayerState, IPlayerState>();
+
+    
 
     private void Awake()
     {
@@ -146,8 +158,13 @@ public class PlayerController : MonoBehaviour
         _stateData.Add(PlayerState.Damege, new DamageState());
         _stateData.Add(PlayerState.GameOver, new GameOverState());
         _stateData.Add(PlayerState.GameClear, new GameClearState());
+        _stateData.Add(PlayerState.Pause, new PauseState());
+        _beforeState = PlayerState.Stop;
+        _currentState = PlayerState.Stop;
         ChangeState(PlayerState.Stop);
-    }
+        _pm.OnPause += PauseSetting;
+        _pm.OnResume += ResumeSetting;
+        }
     void Update()
     {
         _rayOrigin = transform.position; // Rayの始点を取得
@@ -166,9 +183,18 @@ public class PlayerController : MonoBehaviour
     {
         if (_currentState == nextState) return;
 
+        _beforeState = _currentState;
+
+        _beforeIstate = CurrentState;
+
         _currentState = nextState;
 
+        if(_beforeIstate == _stateData[PlayerState.Pause])
+        {
+            _beforeIstate?.OnEnd(this);
+        }
         CurrentState.OnStart(this);
+
     }
 
     //頭にOnとつく関数はUnity上にてInputSystemで使用しているため参照0個で大丈夫
@@ -210,6 +236,10 @@ public class PlayerController : MonoBehaviour
         if (_isInputDisable) return;
         if (!context.performed) return;
         _attackInput = true;
+    }
+    public void OnPause(InputAction.CallbackContext context)
+    {
+        _pm.PauseUpdate(context.performed);
     }
     public void AttackInputDisAble()
     {
@@ -300,11 +330,6 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    public void OnTriggerExit2D(Collider2D collision)
-    {
-        
-    }
-
     public void IsDamegeDisable()
     {
         _isDamege = false;
@@ -327,8 +352,19 @@ public class PlayerController : MonoBehaviour
     }
     public void FreezePosition()
     {
-        _rb.constraints = RigidbodyConstraints2D.FreezePositionX;
-        _rb.constraints = RigidbodyConstraints2D.FreezePositionY;
+        _rb.constraints = RigidbodyConstraints2D.FreezeAll;
+    }
+    public void FreezePositionRemove()
+    {
+        _rb.constraints = RigidbodyConstraints2D.FreezeRotation;
+    }
+    private void PauseSetting()
+    {
+        ChangeState(PlayerState.Pause);
+    }
+    private void ResumeSetting()
+    {
+        ChangeState(_beforeState);
     }
 }
 public enum PlayerState
@@ -348,5 +384,6 @@ public enum PlayerState
     ChargeAttack,
     Damege,
     GameOver,
-    GameClear
+    GameClear,
+    Pause
 }

@@ -49,4 +49,8 @@ public class WalkState : IPlayerState
             playerController.ChangeState(PlayerState.Damege);
         }
     }
+    public void OnEnd(PlayerController playerController)
+    {
+
+    }
 }

@@ -34,4 +34,8 @@ public class AirState : IPlayerState
             playerController.ChangeState(PlayerState.GameOver);
         }
     }
+    public void OnEnd(PlayerController playerController)
+    {
+
+    }
 }

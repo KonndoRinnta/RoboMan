@@ -24,4 +24,8 @@ public class DamageState : IPlayerState
     {
 
     }
+    public void OnEnd(PlayerController playerController)
+    {
+
+    }
 }

@@ -20,4 +20,8 @@ public class GameClearState : IPlayerState
     {
         
     }
+    public void OnEnd(PlayerController playerController)
+    {
+
+    }
 }

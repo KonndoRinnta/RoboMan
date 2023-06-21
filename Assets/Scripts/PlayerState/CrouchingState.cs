@@ -23,4 +23,8 @@ public class CrouchingState : IPlayerState
             playerController.ChangeState(PlayerState.GameClear);
         }
     }
+    public void OnEnd(PlayerController playerController)
+    {
+
+    }
 }

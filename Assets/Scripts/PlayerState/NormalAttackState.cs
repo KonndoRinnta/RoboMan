@@ -23,4 +23,8 @@ public class NormalAttackState : IPlayerState
     {
 
     }
+    public void OnEnd(PlayerController playerController)
+    {
+
+    }
 }

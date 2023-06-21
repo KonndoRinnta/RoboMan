@@ -21,4 +21,8 @@ public class SlidingState : IPlayerState
     {
 
     }
+    public void OnEnd(PlayerController playerController)
+    {
+
+    }
 }

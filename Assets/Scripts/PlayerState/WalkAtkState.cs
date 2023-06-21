@@ -23,4 +23,8 @@ public class WalkAtkState : IPlayerState
     {
 
     }
+    public void OnEnd(PlayerController playerController)
+    {
+
+    }
 }

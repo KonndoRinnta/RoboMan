@@ -21,4 +21,8 @@ public class GameOverState : IPlayerState
     {
 
     }
+    public void OnEnd(PlayerController playerController)
+    {
+
+    }
 }

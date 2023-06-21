@@ -44,3 +44,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _gameOverPanel: {fileID: 0}
+  _gameClearPanel: {fileID: 0}
+  _gameOverFirstButton: {fileID: 0}
+  _gameClearFirstButton: {fileID: 0}

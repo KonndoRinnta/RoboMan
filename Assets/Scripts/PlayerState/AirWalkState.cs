@@ -46,4 +46,8 @@ public class AirWalkState : IPlayerState
             playerController.ChangeState(PlayerState.GameOver);
         }
     }
+    public void OnEnd(PlayerController playerController)
+    {
+
+    }
 }

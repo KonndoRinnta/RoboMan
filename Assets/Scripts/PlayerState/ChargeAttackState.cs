@@ -12,4 +12,8 @@ public class ChargeAttackState : IPlayerState
     {
 
     }
+    public void OnEnd(PlayerController playerController)
+    {
+
+    }
 }
