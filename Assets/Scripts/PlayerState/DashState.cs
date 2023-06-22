@@ -21,8 +21,8 @@ public class DashState : IPlayerState
     }
     public void OnStart(PlayerController playerController)
     {
-        playerController.Animator.Play("player_dash");
         playerController.StartCoroutine(Execute(playerController)); // Coroutine‚ðŠJŽn‚·‚é
+        playerController.Animator.Play("player_dash");
     }
     public void OnUpdate(PlayerController playerController)
     {

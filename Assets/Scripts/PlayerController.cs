@@ -101,7 +101,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private bool _airDashable = true;
     public bool AirDashable => _airDashable;
 
-    private bool _isInputDisable = false;
+    [SerializeField]private bool _isInputDisable = false;
 
     private float _moveInput;
     public float MoveInput => _moveInput;
@@ -127,7 +127,7 @@ public class PlayerController : MonoBehaviour
     private bool _pauseInput;
     public bool PauseInput => _pauseInput;
 
-    PlayerState _currentState;
+    [Header("現在の状態")]PlayerState _currentState;
     public IPlayerState CurrentState => _stateData[_currentState];
 
     PlayerState _beforeState;
@@ -177,6 +177,7 @@ public class PlayerController : MonoBehaviour
 
         CurrentState.OnUpdate(this);
         Debug.Log(_currentState);
+        Debug.Log(MoveInput);
     }
     public void OnGround()
     {
