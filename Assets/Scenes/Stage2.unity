@@ -1977,7 +1977,7 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 5535747197780994481, guid: a978b2bc54acab2438b093f91b5aee9f, type: 3}
   m_PrefabInstance: {fileID: 1208808952}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2058272192}
+  m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ea24d641d72ae5148a5ba5dbf6318157, type: 3}
@@ -3171,6 +3171,10 @@ PrefabInstance:
       propertyPath: _gameClearAnimTime
       value: 3
       objectReference: {fileID: 0}
+    - target: {fileID: 2232143883776566865, guid: 092cb4370db46144da8f12ce145b7589, type: 3}
+      propertyPath: _damageInvincibleTime
+      value: 0.5
+      objectReference: {fileID: 0}
     - target: {fileID: 2232143883776566868, guid: 092cb4370db46144da8f12ce145b7589, type: 3}
       propertyPath: m_ActionEvents.Array.size
       value: 17
@@ -3742,18 +3746,12 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
---- !u!1 &2058272192 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 5535747197780994482, guid: a978b2bc54acab2438b093f91b5aee9f, type: 3}
+--- !u!114 &2058272193 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: -4479698439567203475, guid: a978b2bc54acab2438b093f91b5aee9f, type: 3}
   m_PrefabInstance: {fileID: 1208808952}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &2058272193
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2058272192}
+  m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6df821cc4fc4cba46a6155fa6fe9cff1, type: 3}
