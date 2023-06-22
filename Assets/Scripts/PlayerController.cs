@@ -121,6 +121,9 @@ public class PlayerController : MonoBehaviour
     private bool _attackInput;
     public bool AttackInput => _attackInput;
 
+    private bool _freezePositionFlag = false;
+    public bool FreezePositionFlag => _freezePositionFlag;
+
     private bool _pauseInput;
     public bool PauseInput => _pauseInput;
 
@@ -203,7 +206,7 @@ public class PlayerController : MonoBehaviour
         if (!_isInputDisable)
         {
             _moveInput = context.ReadValue<Vector2>().x;
-            if (_moveInput != 0)
+            if (_moveInput != 0 && !FreezePositionFlag)
             {
                 _sR.flipX = _moveInput < 0 ? true : false;
                 if (_sR.flipX == true) _normalAttackHitBox.transform.rotation = Quaternion.Euler(0, 0, 0);
@@ -353,10 +356,12 @@ public class PlayerController : MonoBehaviour
     public void FreezePosition()
     {
         _rb.constraints = RigidbodyConstraints2D.FreezeAll;
+        _freezePositionFlag = true;
     }
     public void FreezePositionRemove()
     {
         _rb.constraints = RigidbodyConstraints2D.FreezeRotation;
+        _freezePositionFlag = false;
     }
     private void PauseSetting()
     {

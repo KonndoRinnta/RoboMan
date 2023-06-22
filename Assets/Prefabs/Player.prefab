@@ -226,6 +226,7 @@ MonoBehaviour:
   _animator: {fileID: 1676980022}
   _sR: {fileID: 1676980023}
   _gM: {fileID: 0}
+  _pm: {fileID: 0}
   _airDashable: 1
 --- !u!114 &2232143883776566868
 MonoBehaviour:
@@ -388,6 +389,22 @@ MonoBehaviour:
         m_CallState: 2
     m_ActionId: 87868553-f412-42fd-8864-82f2d1b7f902
     m_ActionName: Player/Attack[/Mouse/leftButton]
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 2232143883776566865}
+        m_TargetAssemblyTypeName: PlayerController, Assembly-CSharp
+        m_MethodName: OnPause
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 1217a3ec-9545-45f3-b7d2-8bd88d3e6db4
+    m_ActionName: Player/Pause[/Keyboard/escape,/XInputControllerWindows/start,/XInputControllerWindows/select]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Player

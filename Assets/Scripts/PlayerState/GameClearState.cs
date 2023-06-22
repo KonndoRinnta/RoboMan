@@ -7,6 +7,7 @@ public class GameClearState : IPlayerState
     public IEnumerator Execute(PlayerController playerController)
     {
         playerController.InputDisable();
+        playerController.FreezePosition();
         yield return new WaitForSeconds(playerController.GameClearAnimTime);
         playerController.GM.IsGameClear();
         playerController.PlayerDisable();

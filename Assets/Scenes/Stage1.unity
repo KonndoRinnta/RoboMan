@@ -2493,6 +2493,30 @@ PrefabInstance:
       propertyPath: _gameClearAnimTime
       value: 3
       objectReference: {fileID: 0}
+    - target: {fileID: 2232143883776566868, guid: 092cb4370db46144da8f12ce145b7589, type: 3}
+      propertyPath: m_ActionEvents.Array.size
+      value: 17
+      objectReference: {fileID: 0}
+    - target: {fileID: 2232143883776566868, guid: 092cb4370db46144da8f12ce145b7589, type: 3}
+      propertyPath: m_ActionEvents.Array.data[16].m_ActionId
+      value: 1217a3ec-9545-45f3-b7d2-8bd88d3e6db4
+      objectReference: {fileID: 0}
+    - target: {fileID: 2232143883776566868, guid: 092cb4370db46144da8f12ce145b7589, type: 3}
+      propertyPath: m_ActionEvents.Array.data[16].m_ActionName
+      value: Player/Pause[/Keyboard/escape,/XInputControllerWindows/start,/XInputControllerWindows/select]
+      objectReference: {fileID: 0}
+    - target: {fileID: 2232143883776566868, guid: 092cb4370db46144da8f12ce145b7589, type: 3}
+      propertyPath: m_ActionEvents.Array.data[16].m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2232143883776566868, guid: 092cb4370db46144da8f12ce145b7589, type: 3}
+      propertyPath: m_ActionEvents.Array.data[16].m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2232143883776566868, guid: 092cb4370db46144da8f12ce145b7589, type: 3}
+      propertyPath: m_ActionEvents.Array.data[16].m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 2232143883776566877, guid: 092cb4370db46144da8f12ce145b7589, type: 3}
       propertyPath: m_Name
       value: Player
